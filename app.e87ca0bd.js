@@ -479,11 +479,17 @@ var cardFormWrapper = document.querySelector(".overlay"); // контейнер 
 
 var cardForm = document.querySelector(".task__edit"); //шаблон новой/редактируемой карточки
 
-var confirmBtn = document.querySelector(".task__edit-confirm"); //кнопка в шаблоне для подтверждения добавления/изменения карточки
+var confirmBtn = document.querySelector(".task__edit-confirm"); //кнопка confirm в шаблоне для подтверждения добавления/изменения карточки
 
 var addTodoBtn = document.querySelector(".board__add-todo"); //кнопка вызова шаблона для добавления карточки
 
+var warningWrapper = document.querySelector(".overlay-warning"); //контейнер формы Warning
+
 var confirmWarningBtn = document.querySelector(".warning__confirm"); //кнопка в форме Warning для подтверждения действий (удаления карточек)
+
+var deleteDoneBtn = document.querySelector(".board__delete-all"); //кнопка удаления всех карточек
+
+var cancelTodoBtn = document.querySelector(".task__edit-cancel"); //кнопка cancel для закрытия шаблона добавления/изменения карточки
 //прослушка на кнопку добавления новой карточки
 
 addTodoBtn.addEventListener("click", function () {
@@ -658,7 +664,6 @@ function editingCard() {
 } //Закрытие формы для добавления новой карточки или редактирования старой при нажатии кнопки Cancel
 
 
-var cancelTodoBtn = document.querySelector(".task__edit-cancel");
 cancelTodoBtn.addEventListener("click", function () {
   closeEditForm();
 }); //закрытие формы добавления/изменения карточек
@@ -711,8 +716,6 @@ confirmWarningBtn.addEventListener("click", function () {
   }
 }); //прослушка на кнопку удаления всех выполненных карточек (вызов формы warning)
 
-var warningWrapper = document.querySelector(".overlay-warning");
-var deleteDoneBtn = document.querySelector(".board__delete-all");
 deleteDoneBtn.addEventListener("click", function (e) {
   warningWrapper.classList.toggle("warning-active");
   document.querySelector(".warning__text-description").innerText = "Do you want to delete all tasks?";
@@ -752,7 +755,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54132" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61491" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

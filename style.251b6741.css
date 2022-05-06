@@ -374,6 +374,15 @@ date {
   color: #111414;
 }
 
+@media (max-width: 576px) {
+  .board-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .overlay, .overlay-warning {
   top: 0;
   right: 0;
