@@ -46,28 +46,28 @@ main {
 
 a, span, p, input, button, date, select, option, textarea, ::-webkit-input-placeholder {
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(0.8rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   line-height: 1.2;
   color: #fff;
 }
 
 a, span, p, input, button, date, select, option, textarea, :-ms-input-placeholder {
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(0.8rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   line-height: 1.2;
   color: #fff;
 }
 
 a, span, p, input, button, date, select, option, textarea, ::-ms-input-placeholder {
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(0.8rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   line-height: 1.2;
   color: #fff;
 }
 
 a, span, p, input, button, date, select, option, textarea, ::placeholder {
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(0.8rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   line-height: 1.2;
   color: #fff;
 }
