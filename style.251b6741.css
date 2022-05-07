@@ -390,6 +390,15 @@ date {
   color: #111414;
 }
 
+@media screen and (max-width: 787px) and (orientation: landscape) {
+  .board-wrapper {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    max-height: none;
+  }
+}
+
 @media screen and (max-width: 666px) and (orientation: landscape) {
   .board-wrapper {
     -webkit-box-align: start;
