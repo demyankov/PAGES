@@ -224,12 +224,14 @@ function getTime() {
   timeNow.getHours() < 9 ? hoursNow = "0".concat(timeNow.getHours()) : hoursNow = timeNow.getHours();
   return "".concat(hoursNow, ":").concat(minutesNow);
 }
-},{"./app.js":"app/app.js"}],"app/render.js":[function(require,module,exports) {
+},{"./app.js":"app/app.js"}],"app/display.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.boardDisplay = boardDisplay;
+exports.closeEditForm = closeEditForm;
 exports.displayTime = displayTime;
 exports.fillingCard = fillingCard;
 exports.getCardData = getCardData;
@@ -316,16 +318,21 @@ function renderTodo() {
     (0, _create_tag.appendTag)(form, taskBtn, taskTitle, taskDescription, taskUser, taskDate, btnToProgress);
     (0, _create_tag.appendTag)(todoWrapper, form);
   });
+
+  if (cardsToDo.length === 0) {
+    var messageIfEmpty = (0, _create_tag.createTag)("p", "empty-message", "Currently there are no tasks to do");
+    (0, _create_tag.appendTag)(todoWrapper, messageIfEmpty);
+  }
 } //рендер формы на доске INPROGRESS
 
 
 function renderInProgress() {
-  var cardsToDo = _app.cards.filter(function (el) {
+  var cardsInProgress = _app.cards.filter(function (el) {
     return el.status === "in_progress" && el.active === "true";
   });
 
   inProgressWrapper.innerHTML = "";
-  cardsToDo.forEach(function (card) {
+  cardsInProgress.forEach(function (card) {
     var form = (0, _create_tag.createTag)("form", "in-progress");
     form.classList.add("task");
     form.setAttribute("data-id", card.id); //присваиваем форме data-id
@@ -345,16 +352,21 @@ function renderInProgress() {
     (0, _create_tag.appendTag)(form, taskBtn, taskTitle, taskDescription, taskUser, taskDate);
     (0, _create_tag.appendTag)(inProgressWrapper, form);
   });
+
+  if (cardsInProgress.length === 0) {
+    var messageIfEmpty = (0, _create_tag.createTag)("p", "empty-message", "Currently there are no tasks in progress");
+    (0, _create_tag.appendTag)(inProgressWrapper, messageIfEmpty);
+  }
 } //рендер формы на доске DONE
 
 
 function renderDone() {
-  var cardsToDo = _app.cards.filter(function (el) {
+  var cardsDone = _app.cards.filter(function (el) {
     return el.status === "done" && el.active === "true";
   });
 
   doneWrapper.innerHTML = "";
-  cardsToDo.forEach(function (card) {
+  cardsDone.forEach(function (card) {
     var form = (0, _create_tag.createTag)("form", "task_done");
     form.classList.add("task");
     form.setAttribute("data-id", card.id); //присваиваем форме data-id
@@ -372,6 +384,11 @@ function renderDone() {
     (0, _create_tag.appendTag)(form, taskBtn, taskTitle, taskDescription, taskUser, taskDate);
     (0, _create_tag.appendTag)(doneWrapper, form);
   });
+
+  if (cardsDone.length === 0) {
+    var messageIfEmpty = (0, _create_tag.createTag)("p", "empty-message", "Currently there are no done tasks");
+    (0, _create_tag.appendTag)(doneWrapper, messageIfEmpty);
+  }
 } //наполнение карточек данными
 
 
@@ -404,6 +421,31 @@ function fillingFormCard() {
   taskTitle ? taskTitle.value = card.title : null;
   taskDescription ? taskDescription.value = card.description : null;
   taskUser ? taskUser.value = card.user : null;
+} //закрытие формы добавления/изменения карточек
+
+
+function closeEditForm() {
+  _app.cardFormWrapper.classList.toggle("overlay-active");
+
+  var form = document.querySelector(".task__edit");
+  form.querySelector(".task__edit-title").value = "";
+  form.querySelector(".task__edit-description").value = "";
+} //функция сворачивания/разворачивания досок
+
+
+function boardDisplay(el) {
+  var board = el.closest(".board");
+  var boardId = board.id;
+  var todoHeader = document.querySelector("#todo-header"); // header доски todo
+
+  var inProgressHeader = document.querySelector("#in-progress-header"); // header доски in-progress
+
+  var doneHeader = document.querySelector("#done-header"); // header доски done
+
+  boardId !== "board_todo" ? todoHeader.closest(".board").classList.add("task-hidden") : null;
+  boardId !== "board_in-progress" ? inProgressHeader.closest(".board").classList.add("task-hidden") : null;
+  boardId !== "board_done" ? doneHeader.closest(".board").classList.add("task-hidden") : null;
+  board.classList.toggle("task-hidden");
 }
 },{"./create_tag.js":"app/create_tag.js","./additional.js":"app/additional.js","./app.js":"app/app.js"}],"app/app.js":[function(require,module,exports) {
 "use strict";
@@ -411,10 +453,10 @@ function fillingFormCard() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.cards = void 0;
+exports.cards = exports.cardFormWrapper = exports.cardForm = void 0;
 exports.createObject = createObject;
 
-var _render = require("./render.js");
+var _display = require("./display.js");
 
 var _additional = require("./additional.js");
 
@@ -470,43 +512,58 @@ function createObject() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  (0, _render.displayTime)(_additional.getTime);
-  (0, _render.renderTodo)();
-  (0, _render.renderInProgress)();
-  (0, _render.renderDone)();
+  (0, _display.displayTime)(_additional.getTime);
+  (0, _display.renderTodo)();
+  (0, _display.renderInProgress)();
+  (0, _display.renderDone)();
 }, false);
+var boardWrapper = document.querySelector(".board-wrapper"); // контейнер всех досок
+
+var doneWrapper = document.querySelector(".done-wrapper"); // контейнер Доски done
+
 var cardFormWrapper = document.querySelector(".overlay"); // контейнер пустого шаблона новой/редактирования карточки
 
+exports.cardFormWrapper = cardFormWrapper;
 var cardForm = document.querySelector(".task__edit"); //шаблон новой/редактируемой карточки
 
+exports.cardForm = cardForm;
 var confirmBtn = document.querySelector(".task__edit-confirm"); //кнопка confirm в шаблоне для подтверждения добавления/изменения карточки
 
-var addTodoBtn = document.querySelector(".board__add-todo"); //кнопка вызова шаблона для добавления карточки
+var cancelTodoBtn = document.querySelector(".task__edit-cancel"); //кнопка cancel для закрытия шаблона добавления/изменения карточки
 
 var warningWrapper = document.querySelector(".overlay-warning"); //контейнер формы Warning
 
 var confirmWarningBtn = document.querySelector(".warning__confirm"); //кнопка в форме Warning для подтверждения действий (удаления карточек)
 
-var deleteDoneBtn = document.querySelector(".board__delete-all"); //кнопка удаления всех карточек
+var cancelWarningBtn = document.querySelector(".warning__cancel"); //кнопка cancel в форме Warning
 
-var cancelTodoBtn = document.querySelector(".task__edit-cancel"); //кнопка cancel для закрытия шаблона добавления/изменения карточки
-//прослушка на кнопку добавления новой карточки
+boardWrapper.addEventListener("click", function (e) {
+  var el = e.target; //сворачивание/разворачивание доски
 
-addTodoBtn.addEventListener("click", function () {
-  addOrEdit = "add"; //устанавливаем флаг в состояние add
+  el.className.includes("board__header") ? (0, _display.boardDisplay)(el) : null; //прослушка на кнопку добавления новой карточки
 
-  (0, _render.getCardData)(); //получаем список пользователей и добавляем в шаблон новой карточки
+  if (el.className.includes("board__add-todo")) {
+    addOrEdit = "add"; //устанавливаем флаг в состояние add
 
-  cardFormWrapper.classList.toggle("overlay-active"); //добавляем класс для отображения формы редактировния карточки
+    (0, _display.getCardData)(); //получаем список пользователей и добавляем в шаблон новой карточки
+
+    cardFormWrapper.classList.toggle("overlay-active"); //добавляем класс для отображения формы редактировния карточки
+  } //прослушка на кнопку удаления всех выполненных карточек (вызов формы warning)
+
+
+  if (el.className.includes("board__delete-all")) {
+    warningWrapper.classList.toggle("warning-active");
+    document.querySelector(".warning__text-description").innerText = "Do you want to delete all tasks?";
+    deletedCard = el;
+  }
 }); //прослушка на кнопку Confirm в форме добавления/редактирования карточки для добавления изменений в массив
 
 confirmBtn.addEventListener("click", function () {
-  console.log(idEditCard, editCard);
   addOrEdit === "add" ? addNewCard() : null; //вызоваем функцию добавления в массив объекта новой карточки
 
   addOrEdit === "edit" ? editingCard() : null; //вызоваем функцию редактирования объекта карточки
 
-  (0, _render.renderTodo)();
+  (0, _display.renderTodo)();
 }); //Функция добавления в массив объекта новой карточки
 
 function addNewCard() {
@@ -519,20 +576,12 @@ function addNewCard() {
     var card = createObject(id, title, description, user, date);
     cards.push(card);
     setLocalStorage(cards, id);
-    closeEditForm();
+    (0, _display.closeEditForm)();
   }
-} // функция определения заголовка, описания и исполнителя В ФОРМЕ добавляемой/редактируемой задачи (карточки)
-
-
-function getCardFormData() {
-  console.log();
-  title = cardForm.querySelector(".task__edit-title").value;
-  description = cardForm.querySelector(".task__edit-description").value;
-  user = cardForm.querySelector(".task__edit-user").value;
 } // прослушка на контейнер TODO
 
 
-_render.todoWrapper.addEventListener("click", function (event) {
+_display.todoWrapper.addEventListener("click", function (event) {
   var el = event.target; //прослушка на кнопку редактирования карточки
 
   if (el.className.includes("task__btn-edit")) {
@@ -554,8 +603,8 @@ _render.todoWrapper.addEventListener("click", function (event) {
     if (countTasksInProgress < 6) {
       inListenerToProgress(el);
       setLocalStorage(cards);
-      (0, _render.renderTodo)();
-      (0, _render.renderInProgress)();
+      (0, _display.renderTodo)();
+      (0, _display.renderInProgress)();
     } else {
       warningWrapper.classList.toggle("warning-active"); //открываем окно с предупреждением
 
@@ -564,7 +613,14 @@ _render.todoWrapper.addEventListener("click", function (event) {
       document.querySelector(".warning__text-description").innerText = "There are many tasks in progress. Complete the task and try again";
     }
   }
-});
+}); // функция определения заголовка, описания и исполнителя В ФОРМЕ добавляемой/редактируемой задачи (карточки)
+
+
+function getCardFormData() {
+  title = cardForm.querySelector(".task__edit-title").value;
+  description = cardForm.querySelector(".task__edit-description").value;
+  user = cardForm.querySelector(".task__edit-user").value;
+}
 
 function inListenerEditCard(el) {
   addOrEdit = "edit";
@@ -576,7 +632,7 @@ function inListenerEditCard(el) {
   var userTag = cardForm.querySelector(".task__edit-user");
   cards.forEach(function (card) {
     if (card.id == idEditCard) {
-      (0, _render.getCardData)(card, titleTag, descriptionTag, userTag); //получаем список пользователей, заполняем форму данными редактируемой карточки
+      (0, _display.getCardData)(card, titleTag, descriptionTag, userTag); //получаем список пользователей, заполняем форму данными редактируемой карточки
 
       cardFormWrapper.classList.toggle("overlay-active"); //добавляем класс для отображения формы редактировния карточки
     }
@@ -595,7 +651,7 @@ function inListenerDeleteCard(el, parentClass) {
 } //прослушка на кнопку перемещения карточки из IN-PROGRESS в TODO и в Done
 
 
-_render.inProgressWrapper.addEventListener("click", function (e) {
+_display.inProgressWrapper.addEventListener("click", function (e) {
   var el = e.target; //  из IN-PROGRESS в TODO
 
   el.className.includes("task__btn-back") ? inListenerToTodo(el) : null; // из IN-PROGRESS в Done
@@ -603,9 +659,9 @@ _render.inProgressWrapper.addEventListener("click", function (e) {
   el.className.includes("task__btn-complete") ? inListenerToDone(el) : null;
   setLocalStorage(cards); //записываем в localStorage измененный массив карточек
 
-  (0, _render.renderTodo)();
-  (0, _render.renderInProgress)();
-  (0, _render.renderDone)();
+  (0, _display.renderTodo)();
+  (0, _display.renderInProgress)();
+  (0, _display.renderDone)();
 }); //'перемещаем' карточку из todo в in_progress (устанавливаем флаг status = in_progress)
 
 
@@ -646,7 +702,6 @@ function editingCard() {
   getCardFormData(editCard); //получаем данные из редактируемой карточки
 
   var date = (0, _additional.getDate)();
-  console.log(title, description);
 
   if (title && description) {
     cards.forEach(function (card) {
@@ -657,7 +712,7 @@ function editingCard() {
         card.date_edit = date;
         setLocalStorage(cards); //загружаем в localStorage измененный массив
 
-        closeEditForm(); //закрываем форму
+        (0, _display.closeEditForm)(); //закрываем форму
       }
     });
   }
@@ -665,17 +720,8 @@ function editingCard() {
 
 
 cancelTodoBtn.addEventListener("click", function () {
-  closeEditForm();
-}); //закрытие формы добавления/изменения карточек
-
-function closeEditForm() {
-  cardFormWrapper.classList.toggle("overlay-active");
-  var form = document.querySelector(".task__edit");
-  form.querySelector(".task__edit-title").value = "";
-  form.querySelector(".task__edit-description").value = "";
-}
-
-var doneWrapper = document.querySelector(".done-wrapper"); //прослушка на кнопку удаления карточки из доски DONe
+  (0, _display.closeEditForm)();
+}); //прослушка на кнопку удаления карточки из доски DONe
 
 doneWrapper.addEventListener("click", function (event) {
   var el = event.target;
@@ -695,39 +741,32 @@ confirmWarningBtn.addEventListener("click", function () {
   if (deletedCard.closest(".task_done")) {
     inListenerDeleteCard(deletedCard, ".task_done");
     setLocalStorage(cards);
-    (0, _render.renderDone)();
+    (0, _display.renderDone)();
   } //если происходит удаление карточек на доске Todo
 
 
   if (deletedCard.closest(".task_to-do")) {
     inListenerDeleteCard(deletedCard, ".task_to-do");
     setLocalStorage(cards);
-    (0, _render.renderTodo)();
+    (0, _display.renderTodo)();
   } //если происходит удаление всех карточек
 
 
   if (deletedCard.className.includes("board__delete-all")) {
     exports.cards = cards = [];
     setLocalStorage(cards);
-    (0, _render.renderTodo)();
-    (0, _render.renderInProgress)();
-    (0, _render.renderDone)();
+    (0, _display.renderTodo)();
+    (0, _display.renderInProgress)();
+    (0, _display.renderDone)();
     (0, _additional.setCountOfCards)();
   }
-}); //прослушка на кнопку удаления всех выполненных карточек (вызов формы warning)
-
-deleteDoneBtn.addEventListener("click", function (e) {
-  warningWrapper.classList.toggle("warning-active");
-  document.querySelector(".warning__text-description").innerText = "Do you want to delete all tasks?";
-  deletedCard = e.target;
 }); //закрытие формы warning при нажатии кнопки Cancel
 
-var cancelWarningBtn = document.querySelector(".warning__cancel");
 cancelWarningBtn.addEventListener("click", function () {
   warningWrapper.classList.toggle("warning-active");
   document.querySelector(".warning__confirm").hidden = false;
 });
-},{"./render.js":"app/render.js","./additional.js":"app/additional.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./display.js":"app/display.js","./additional.js":"app/additional.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -755,7 +794,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63138" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65452" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

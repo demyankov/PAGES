@@ -17,6 +17,13 @@ html, body {
   height: 100%;
 }
 
+@media all and (orientation: landscape) {
+  html, body {
+    max-height: none;
+    height: 100%;
+  }
+}
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,7 +110,8 @@ select:hover {
           align-items: flex-start;
   background-color: #575753;
   min-height: 100%;
-  max-height: 100%;
+  min-width: 15rem;
+  overflow: auto;
 }
 
 .container {
@@ -182,9 +190,12 @@ date {
           justify-content: space-between;
   max-height: 100%;
   gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .board-wrapper .board {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -201,7 +212,6 @@ date {
   min-height: 100%;
   border: 1px solid #fff;
   border-radius: 0.5rem;
-  overflow-y: auto;
 }
 
 .board-wrapper .board__header {
@@ -215,8 +225,7 @@ date {
       -ms-flex-align: center;
           align-items: center;
   border-bottom: 1px solid #fff;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-radius: 0.5rem;
   padding: clamp(0.75rem, 2vw, 1.5rem);
   text-transform: uppercase;
 }
@@ -244,15 +253,23 @@ date {
   background: linear-gradient(90deg, #ad7dc4, #6cd5c0);
 }
 
+.board-wrapper .board .in-progress-wrapper {
+  border-radius: 0.5rem;
+}
+
 .board-wrapper .board__task-wrapper {
   position: relative;
-  min-height: clamp(1.5rem, 4vw, 3rem);
+  min-height: clamp(3rem, 6vw, 5rem);
   height: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding: clamp(0.25rem, 0.5vw, 0.5rem);
   overflow: auto;
+}
+
+.board-wrapper .board__task-wrapper .empty-message {
+  text-align: center;
 }
 
 .board-wrapper .board__task-wrapper .task_to-do {
@@ -352,16 +369,15 @@ date {
 
 .board-wrapper .board__footer {
   border-top: 1px solid #fff;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-radius: 0.5rem;
   padding: 0;
-  overflow: hidden;
 }
 
 .board-wrapper .board__footer-btn {
   padding: clamp(0.75rem, 2vw, 1.5rem);
   width: 100%;
   border-color: inherit;
+  border-radius: 0.5rem;
   background-color: #a65dcf;
   color: #fff;
 }
@@ -374,12 +390,86 @@ date {
   color: #111414;
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 666px) and (orientation: landscape) {
+  .board-wrapper {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    max-height: none;
+  }
+  .board {
+    height: 100%;
+  }
+}
+
+@media (max-width: 666px) {
   .board-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    max-width: 25rem;
+    max-height: 100%;
+    overflow: hidden;
+  }
+  .board-wrapper .board {
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    max-height: 50%;
+    height: 100%;
+  }
+  .board-wrapper .board .board__header {
+    padding-right: 3rem;
+  }
+  .board-wrapper .board .board__header::after {
+    content: '';
+    height: 2rem;
+    width: 1.2rem;
+    position: absolute;
+    right: 0.5rem;
+    background-image: url("/arrow.23d0505e.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  .board-wrapper .board .board__task-wrapper {
+    opacity: 1;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  .board-wrapper .board .board__footer {
+    opacity: 1;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  .board-wrapper .task-hidden {
+    min-height: auto;
+    border: none;
+  }
+  .board-wrapper .task-hidden .board__header {
+    border-bottom: 2px solid #fff;
+  }
+  .board-wrapper .task-hidden .board__header::after {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  .board-wrapper .task-hidden .board__header::after:active {
+    background-image: url("/arrow_hover.f8fdbd65.svg");
+  }
+  .board-wrapper .task-hidden .board__task-wrapper {
+    max-height: 0px;
+    min-height: auto;
+    opacity: 0%;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  .board-wrapper .task-hidden .board__footer {
+    max-height: 0px;
+    opacity: 0%;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 }
 
