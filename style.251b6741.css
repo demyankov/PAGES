@@ -429,12 +429,12 @@ date {
     content: '';
     height: 1.5rem;
     width: 1.2rem;
+    border: #000 1px solid;
     position: absolute;
     right: 0.5rem;
     top: 50%;
     -webkit-transform: translateY(-60%) rotate(180deg);
             transform: translateY(-60%) rotate(180deg);
-    background-image: url("/icons.bc693cbb.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
