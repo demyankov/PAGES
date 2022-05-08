@@ -426,7 +426,7 @@ date {
     padding-right: 3rem;
   }
   .board-wrapper .board .board__header::after {
-    content: '';
+    content: 'yyyy';
     height: 1.5rem;
     width: 1.2rem;
     border: #000 1px solid;
