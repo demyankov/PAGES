@@ -91,11 +91,11 @@ select {
   background-repeat: no-repeat;
   background-size: 20% 60%;
   background-position: calc(100% + 0.2em) 0.5em;
-  background-image: url("./arrow.23d0505e.svg");
+  background-image: url("arrow.23d0505e.svg");
 }
 
 select:hover {
-  background-image: url("./arrow_hover.f8fdbd65.svg");
+  background-image: url("arrow_hover.f8fdbd65.svg");
 }
 
 .wrapper {
@@ -426,7 +426,7 @@ date {
     padding-right: 3rem;
   }
   .board-wrapper .board .board__header::after {
-    content: url("./arrow.23d0505e.svg");
+    content: url("arrow.23d0505e.svg");
     height: 1.5rem;
     width: 1.2rem;
     position: absolute;
@@ -457,7 +457,7 @@ date {
             transform: translateY(-40%) rotate(0deg);
   }
   .board-wrapper .task-hidden .board__header::after:active {
-    content: url("./arrow_hover.f8fdbd65.svg");
+    content: url("arrow_hover.f8fdbd65.svg");
   }
   .board-wrapper .task-hidden .board__task-wrapper {
     max-height: 0px;
@@ -671,4 +671,4 @@ select .user {
 }
 
 
-/*# sourceMappingURL=/style.251b6741.css.map */
+/*# sourceMappingURL=style.251b6741.css.map */
