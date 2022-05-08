@@ -430,14 +430,6 @@ date {
     height: 1.5rem;
     width: 1.2rem;
     border: #000 1px solid;
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    -webkit-transform: translateY(-60%) rotate(180deg);
-            transform: translateY(-60%) rotate(180deg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
   }
   .board-wrapper .board .board__task-wrapper {
     opacity: 1;
