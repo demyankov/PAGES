@@ -91,11 +91,11 @@ select {
   background-repeat: no-repeat;
   background-size: 20% 60%;
   background-position: calc(100% + 0.2em) 0.5em;
-  background-image: url("/arrow.23d0505e.svg");
+  background-image: url("../arrow.23d0505e.svg");
 }
 
 select:hover {
-  background-image: url("/arrow_hover.f8fdbd65.svg");
+  background-image: url("../arrow_hover.f8fdbd65.svg");
 }
 
 .wrapper {
@@ -426,10 +426,14 @@ date {
     padding-right: 3rem;
   }
   .board-wrapper .board .board__header::after {
-    content: 'yyyy';
+    content: url("../arrow.23d0505e.svg");
     height: 1.5rem;
     width: 1.2rem;
-    border: #000 1px solid;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    -webkit-transform: translateY(-60%) rotate(180deg);
+            transform: translateY(-60%) rotate(180deg);
   }
   .board-wrapper .board .board__task-wrapper {
     opacity: 1;
@@ -453,7 +457,7 @@ date {
             transform: translateY(-40%) rotate(0deg);
   }
   .board-wrapper .task-hidden .board__header::after:active {
-    content: url("/arrow_hover.f8fdbd65.svg");
+    content: url("../arrow_hover.f8fdbd65.svg");
   }
   .board-wrapper .task-hidden .board__task-wrapper {
     max-height: 0px;
@@ -470,7 +474,7 @@ date {
   }
 }
 
-@media screen and (max-width: 860px) and (orientation: landscape) {
+@media screen and (max-width: 767px) and (orientation: landscape) {
   .header {
     padding-top: clamp(1rem, 2.5vw, 2rem);
     padding-bottom: clamp(1rem, 2.5vw, 2rem);
