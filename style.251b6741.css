@@ -426,7 +426,7 @@ date {
     padding-right: 3rem;
   }
   .board-wrapper .board .board__header::after {
-    content: url("/arrow.23d0505e.svg");
+    content: '';
     height: 1.5rem;
     width: 1.2rem;
     position: absolute;
@@ -434,6 +434,10 @@ date {
     top: 50%;
     -webkit-transform: translateY(-60%) rotate(180deg);
             transform: translateY(-60%) rotate(180deg);
+    background-image: url("/icons.bc693cbb.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
   .board-wrapper .board .board__task-wrapper {
     opacity: 1;
