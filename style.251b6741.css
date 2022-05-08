@@ -427,7 +427,7 @@ date {
   }
   .board-wrapper .board .board__header::after {
     content: url("/arrow.23d0505e.svg");
-    height: auto;
+    height: 1.5rem;
     width: 1.2rem;
     position: absolute;
     right: 0.5rem;
@@ -474,7 +474,7 @@ date {
   }
 }
 
-@media screen and (max-width: 767px) and (orientation: landscape) {
+@media screen and (max-width: 860px) and (orientation: landscape) {
   .header {
     padding-top: clamp(1rem, 2.5vw, 2rem);
     padding-bottom: clamp(1rem, 2.5vw, 2rem);
