@@ -117,12 +117,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"styles/style.css":[function(require,module,exports) {
+})({"styles/agreement.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\FONTS\\OpenSans-Light.ttf":[["OpenSans-Light.bf3de11a.ttf","FONTS/OpenSans-Light.ttf"],"FONTS/OpenSans-Light.ttf"],"./..\\FONTS\\Umbrage.ttf":[["Umbrage.3aff5e4a.ttf","FONTS/Umbrage.ttf"],"FONTS/Umbrage.ttf"],"./..\\Image\\banner1.jpg":[["banner1.d75f2e57.jpg","Image/banner1.jpg"],"Image/banner1.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -466,4 +466,4 @@ module.exports = function loadJSBundle(bundle) {
 },{}],0:[function(require,module,exports) {
 var b=require("../node_modules/parcel-bundler/src/builtins/bundle-loader.js");b.register("js",require("../node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js"));b.load([]);
 },{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0], null)
-//# sourceMappingURL=/style.251b6741.js.map
+//# sourceMappingURL=/agreement.41e8026f.js.map

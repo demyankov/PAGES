@@ -117,12 +117,187 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"styles/style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
+})({"js/slider_gallery.js":[function(require,module,exports) {
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\FONTS\\OpenSans-Light.ttf":[["OpenSans-Light.bf3de11a.ttf","FONTS/OpenSans-Light.ttf"],"FONTS/OpenSans-Light.ttf"],"./..\\FONTS\\Umbrage.ttf":[["Umbrage.3aff5e4a.ttf","FONTS/Umbrage.ttf"],"FONTS/Umbrage.ttf"],"./..\\Image\\banner1.jpg":[["banner1.d75f2e57.jpg","Image/banner1.jpg"],"Image/banner1.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// sorry for the spaghetti code and redundant variables, i wasn't exactly a good coder back then
+var cols = 3;
+var main = document.getElementById("slider");
+var parts = [];
+var images = ["./Image/banner.jpg", "./Image/aboutperformance.jpe", "./Image/banner_zapertye_dushi.jpg", "./Image/banner1.jpg", "./Image/banner-ad.jpg"];
+var current = 0;
+var playing = false;
+
+for (var i in images) {
+  new Image().src = images[i];
+}
+
+for (var col = 0; col < cols; col++) {
+  var part = document.createElement("div");
+  part.className = "part";
+  var el = document.createElement("div");
+  el.className = "section";
+  var img = document.createElement("img");
+  img.src = images[current];
+  img.style.left = "".concat(-100 * col, "%");
+  el.appendChild(img);
+  part.appendChild(el);
+  main.appendChild(part);
+  parts.push(part);
+}
+
+var animOptions = {
+  duration: 2.3,
+  ease: Power4.easeInOut
+};
+
+function go(dir) {
+  if (!playing) {
+    var up = function up(part, next) {
+      part.appendChild(next);
+      gsap.to(part, _objectSpread(_objectSpread({}, animOptions), {}, {
+        y: -part.clientHeight
+      })).then(function () {
+        part.children[0].remove();
+        gsap.to(part, {
+          duration: 0,
+          y: 0
+        });
+      });
+    };
+
+    var down = function down(part, next) {
+      part.prepend(next);
+      gsap.to(part, {
+        duration: 0,
+        y: -part.clientHeight
+      });
+      gsap.to(part, _objectSpread(_objectSpread({}, animOptions), {}, {
+        y: 0
+      })).then(function () {
+        part.children[1].remove();
+        playing = false;
+      });
+    };
+
+    playing = true;
+    if (current + dir < 0) current = images.length - 1;else if (current + dir >= images.length) current = 0;else current += dir;
+
+    for (var p in parts) {
+      var _part = parts[p];
+      var next = document.createElement("div");
+      next.className = "section";
+
+      var _img = document.createElement("img");
+
+      _img.src = images[current];
+      _img.style.left = "".concat(-100 * p, "%");
+      next.appendChild(_img);
+
+      if ((p - Math.max(0, dir)) % 2) {
+        down(_part, next);
+      } else {
+        up(_part, next);
+      }
+    }
+  }
+}
+
+window.addEventListener("keydown", function (e) {
+  if (["ArrowDown", "ArrowRight"].includes(e.key)) {
+    go(1);
+  } else if (["ArrowUp", "ArrowLeft"].includes(e.key)) {
+    go(-1);
+  }
+});
+
+function lerp(start, end, amount) {
+  return (1 - amount) * start + amount * end;
+} // const cursor = document.createElement('div');
+// cursor.className = 'cursor';
+// const cursorF = document.createElement('div');
+// cursorF.className = 'cursor-f';
+// let cursorX = 0;
+// let cursorY = 0;
+// let pageX = 0;
+// let pageY = 0;
+// let size = 8;
+// let sizeF = 36;
+// let followSpeed = .16;
+// document.body.appendChild(cursor);
+// document.body.appendChild(cursorF);
+// if ('ontouchstart' in window) {
+//   cursor.style.display = 'none';
+//   cursorF.style.display = 'none';
+// }
+// cursor.style.setProperty('width', size+'px');
+// cursor.style.setProperty('height', size+'px');
+// cursorF.style.setProperty('width', sizeF+'px');
+// cursorF.style.setProperty('height', sizeF+'px');
+
+
+window.addEventListener("mousemove", function (e) {
+  pageX = e.clientX;
+  pageY = e.clientY; // cursor.style.left = e.clientX-size/2+'px';
+  // cursor.style.top = e.clientY-size/2+'px';
+}); // function loop() {
+//   cursorX = lerp(cursorX, pageX, followSpeed);
+//   cursorY = lerp(cursorY, pageY, followSpeed);
+//   cursorF.style.top = cursorY - sizeF/2 + 'px';
+//   cursorF.style.left = cursorX - sizeF/2 + 'px';
+//   requestAnimationFrame(loop);
+// }
+// loop();
+// let startY;
+// let endY;
+// let clicked = false;
+// function mousedown(e) {
+//   gsap.to(cursor, {scale: 4.5});
+//   gsap.to(cursorF, {scale: .4});
+//   clicked = true;
+//   startY = e.clientY || e.touches[0].clientY || e.targetTouches[0].clientY;
+// }
+// function mouseup(e) {
+//   gsap.to(cursor, {scale: 1});
+//   gsap.to(cursorF, {scale: 1});
+//   endY = e.clientY || endY;
+//   if (clicked && startY && Math.abs(startY - endY) >= 40) {
+//     go(!Math.min(0, startY - endY)?1:-1);
+//     clicked = false;
+//     startY = null;
+//     endY = null;
+//   }
+// }
+// window.addEventListener('mousedown', mousedown, false);
+// window.addEventListener('touchstart', mousedown, false);
+// window.addEventListener('touchmove', function(e) {
+//   if (clicked) {
+//     endY = e.touches[0].clientY || e.targetTouches[0].clientY;
+//   }
+// }, false);
+// window.addEventListener('touchend', mouseup, false);
+// window.addEventListener('mouseup', mouseup, false);
+
+var scrollTimeout;
+
+function wheel(e) {
+  clearTimeout(scrollTimeout);
+  setTimeout(function () {
+    if (e.deltaY < -40) {
+      go(-1);
+    } else if (e.deltaY >= 40) {
+      go(1);
+    }
+  });
+}
+
+window.addEventListener("mousewheel", wheel, false);
+window.addEventListener("wheel", wheel, false);
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -326,144 +501,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/bundle-loader.js":[function(require,module,exports) {
-var getBundleURL = require('./bundle-url').getBundleURL;
-
-function loadBundlesLazy(bundles) {
-  if (!Array.isArray(bundles)) {
-    bundles = [bundles];
-  }
-
-  var id = bundles[bundles.length - 1];
-
-  try {
-    return Promise.resolve(require(id));
-  } catch (err) {
-    if (err.code === 'MODULE_NOT_FOUND') {
-      return new LazyPromise(function (resolve, reject) {
-        loadBundles(bundles.slice(0, -1)).then(function () {
-          return require(id);
-        }).then(resolve, reject);
-      });
-    }
-
-    throw err;
-  }
-}
-
-function loadBundles(bundles) {
-  return Promise.all(bundles.map(loadBundle));
-}
-
-var bundleLoaders = {};
-
-function registerBundleLoader(type, loader) {
-  bundleLoaders[type] = loader;
-}
-
-module.exports = exports = loadBundlesLazy;
-exports.load = loadBundles;
-exports.register = registerBundleLoader;
-var bundles = {};
-
-function loadBundle(bundle) {
-  var id;
-
-  if (Array.isArray(bundle)) {
-    id = bundle[1];
-    bundle = bundle[0];
-  }
-
-  if (bundles[bundle]) {
-    return bundles[bundle];
-  }
-
-  var type = (bundle.substring(bundle.lastIndexOf('.') + 1, bundle.length) || bundle).toLowerCase();
-  var bundleLoader = bundleLoaders[type];
-
-  if (bundleLoader) {
-    return bundles[bundle] = bundleLoader(getBundleURL() + bundle).then(function (resolved) {
-      if (resolved) {
-        module.bundle.register(id, resolved);
-      }
-
-      return resolved;
-    }).catch(function (e) {
-      delete bundles[bundle];
-      throw e;
-    });
-  }
-}
-
-function LazyPromise(executor) {
-  this.executor = executor;
-  this.promise = null;
-}
-
-LazyPromise.prototype.then = function (onSuccess, onError) {
-  if (this.promise === null) this.promise = new Promise(this.executor);
-  return this.promise.then(onSuccess, onError);
-};
-
-LazyPromise.prototype.catch = function (onError) {
-  if (this.promise === null) this.promise = new Promise(this.executor);
-  return this.promise.catch(onError);
-};
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js":[function(require,module,exports) {
-module.exports = function loadJSBundle(bundle) {
-  return new Promise(function (resolve, reject) {
-    var script = document.createElement('script');
-    script.async = true;
-    script.type = 'text/javascript';
-    script.charset = 'utf-8';
-    script.src = bundle;
-
-    script.onerror = function (e) {
-      script.onerror = script.onload = null;
-      reject(e);
-    };
-
-    script.onload = function () {
-      script.onerror = script.onload = null;
-      resolve();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(script);
-  });
-};
-},{}],0:[function(require,module,exports) {
-var b=require("../node_modules/parcel-bundler/src/builtins/bundle-loader.js");b.register("js",require("../node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js"));b.load([]);
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0], null)
-//# sourceMappingURL=/style.251b6741.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/slider_gallery.js"], null)
+//# sourceMappingURL=/slider_gallery.9e96fa17.js.map
