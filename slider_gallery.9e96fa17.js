@@ -7,8 +7,8 @@
 // orig method which is the require for previous bundles
 parcelRequire = (function (modules, cache, entry, globalName) {
   // Save the require from previous bundle to this closure if any
-  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
-  var nodeRequire = typeof require === 'function' && require;
+  var previousRequire = typeof parcelRequire === "function" && parcelRequire;
+  var nodeRequire = typeof require === "function" && require;
 
   function newRequire(name, jumped) {
     if (!cache[name]) {
@@ -16,7 +16,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
         // if we cannot find the module within our internal map or
         // cache jump to the current global require ie. the last bundle
         // that was added to the page.
-        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
+        var currentRequire =
+          typeof parcelRequire === "function" && parcelRequire;
         if (!jumped && currentRequire) {
           return currentRequire(name, true);
         }
@@ -30,30 +31,36 @@ parcelRequire = (function (modules, cache, entry, globalName) {
         }
 
         // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
+        if (nodeRequire && typeof name === "string") {
           return nodeRequire(name);
         }
 
-        var err = new Error('Cannot find module \'' + name + '\'');
-        err.code = 'MODULE_NOT_FOUND';
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = "MODULE_NOT_FOUND";
         throw err;
       }
 
       localRequire.resolve = resolve;
       localRequire.cache = {};
 
-      var module = cache[name] = new newRequire.Module(name);
+      var module = (cache[name] = new newRequire.Module(name));
 
-      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
     }
 
     return cache[name].exports;
 
-    function localRequire(x){
+    function localRequire(x) {
       return newRequire(localRequire.resolve(x));
     }
 
-    function resolve(x){
+    function resolve(x) {
       return modules[name][1][x] || x;
     }
   }
@@ -70,9 +77,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   newRequire.cache = cache;
   newRequire.parent = previousRequire;
   newRequire.register = function (id, exports) {
-    modules[id] = [function (require, module) {
-      module.exports = exports;
-    }, {}];
+    modules[id] = [
+      function (require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
   };
 
   var error;
@@ -96,13 +106,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
     if (typeof exports === "object" && typeof module !== "undefined") {
       module.exports = mainExports;
 
-    // RequireJS
+      // RequireJS
     } else if (typeof define === "function" && define.amd) {
-     define(function () {
-       return mainExports;
-     });
+      define(function () {
+        return mainExports;
+      });
 
-    // <script>
+      // <script>
     } else if (globalName) {
       this[globalName] = mainExports;
     }
@@ -117,388 +127,504 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/slider_gallery.js":[function(require,module,exports) {
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+})(
+  {
+    "js/slider_gallery.js": [
+      function (require, module, exports) {
+        function ownKeys(object, enumerableOnly) {
+          var keys = Object.keys(object);
+          if (Object.getOwnPropertySymbols) {
+            var symbols = Object.getOwnPropertySymbols(object);
+            enumerableOnly &&
+              (symbols = symbols.filter(function (sym) {
+                return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+              })),
+              keys.push.apply(keys, symbols);
+          }
+          return keys;
+        }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+        function _objectSpread(target) {
+          for (var i = 1; i < arguments.length; i++) {
+            var source = null != arguments[i] ? arguments[i] : {};
+            i % 2
+              ? ownKeys(Object(source), !0).forEach(function (key) {
+                  _defineProperty(target, key, source[key]);
+                })
+              : Object.getOwnPropertyDescriptors
+              ? Object.defineProperties(
+                  target,
+                  Object.getOwnPropertyDescriptors(source)
+                )
+              : ownKeys(Object(source)).forEach(function (key) {
+                  Object.defineProperty(
+                    target,
+                    key,
+                    Object.getOwnPropertyDescriptor(source, key)
+                  );
+                });
+          }
+          return target;
+        }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+        function _defineProperty(obj, key, value) {
+          if (key in obj) {
+            Object.defineProperty(obj, key, {
+              value: value,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            });
+          } else {
+            obj[key] = value;
+          }
+          return obj;
+        }
 
-// sorry for the spaghetti code and redundant variables, i wasn't exactly a good coder back then
-var cols = 3;
-var main = document.getElementById("slider");
-var parts = [];
-var images = ["./Image/banner.jpg", "./Image/aboutperformance.jpe", "./Image/banner_zapertye_dushi.jpg", "./Image/banner1.jpg", "./Image/banner-ad.jpg"];
-var current = 0;
-var playing = false;
+        // sorry for the spaghetti code and redundant variables, i wasn't exactly a good coder back then
+        var cols = 3;
+        var main = document.getElementById("slider");
+        var parts = [];
+        var images = [
+          "Image/banner.jpg",
+          "Image/aboutperformance.jpe",
+          "Image/banner_zapertye_dushi.jpg",
+          "Image/banner1.jpg",
+          "Image/banner-ad.jpg",
+        ];
+        var current = 0;
+        var playing = false;
 
-for (var i in images) {
-  new Image().src = images[i];
-}
+        for (var i in images) {
+          new Image().src = images[i];
+        }
 
-for (var col = 0; col < cols; col++) {
-  var part = document.createElement("div");
-  part.className = "part";
-  var el = document.createElement("div");
-  el.className = "section";
-  var img = document.createElement("img");
-  img.src = images[current];
-  img.style.left = "".concat(-100 * col, "%");
-  el.appendChild(img);
-  part.appendChild(el);
-  main.appendChild(part);
-  parts.push(part);
-}
+        for (var col = 0; col < cols; col++) {
+          var part = document.createElement("div");
+          part.className = "part";
+          var el = document.createElement("div");
+          el.className = "section";
+          var img = document.createElement("img");
+          img.src = images[current];
+          img.style.left = "".concat(-100 * col, "%");
+          el.appendChild(img);
+          part.appendChild(el);
+          main.appendChild(part);
+          parts.push(part);
+        }
 
-var animOptions = {
-  duration: 2.3,
-  ease: Power4.easeInOut
-};
+        var animOptions = {
+          duration: 2.3,
+          ease: Power4.easeInOut,
+        };
 
-function go(dir) {
-  if (!playing) {
-    var up = function up(part, next) {
-      part.appendChild(next);
-      gsap.to(part, _objectSpread(_objectSpread({}, animOptions), {}, {
-        y: -part.clientHeight
-      })).then(function () {
-        part.children[0].remove();
-        gsap.to(part, {
-          duration: 0,
-          y: 0
-        });
-      });
-    };
+        function go(dir) {
+          if (!playing) {
+            var up = function up(part, next) {
+              part.appendChild(next);
+              gsap
+                .to(
+                  part,
+                  _objectSpread(
+                    _objectSpread({}, animOptions),
+                    {},
+                    {
+                      y: -part.clientHeight,
+                    }
+                  )
+                )
+                .then(function () {
+                  part.children[0].remove();
+                  gsap.to(part, {
+                    duration: 0,
+                    y: 0,
+                  });
+                });
+            };
 
-    var down = function down(part, next) {
-      part.prepend(next);
-      gsap.to(part, {
-        duration: 0,
-        y: -part.clientHeight
-      });
-      gsap.to(part, _objectSpread(_objectSpread({}, animOptions), {}, {
-        y: 0
-      })).then(function () {
-        part.children[1].remove();
-        playing = false;
-      });
-    };
+            var down = function down(part, next) {
+              part.prepend(next);
+              gsap.to(part, {
+                duration: 0,
+                y: -part.clientHeight,
+              });
+              gsap
+                .to(
+                  part,
+                  _objectSpread(
+                    _objectSpread({}, animOptions),
+                    {},
+                    {
+                      y: 0,
+                    }
+                  )
+                )
+                .then(function () {
+                  part.children[1].remove();
+                  playing = false;
+                });
+            };
 
-    playing = true;
-    if (current + dir < 0) current = images.length - 1;else if (current + dir >= images.length) current = 0;else current += dir;
+            playing = true;
+            if (current + dir < 0) current = images.length - 1;
+            else if (current + dir >= images.length) current = 0;
+            else current += dir;
 
-    for (var p in parts) {
-      var _part = parts[p];
-      var next = document.createElement("div");
-      next.className = "section";
+            for (var p in parts) {
+              var _part = parts[p];
+              var next = document.createElement("div");
+              next.className = "section";
 
-      var _img = document.createElement("img");
+              var _img = document.createElement("img");
 
-      _img.src = images[current];
-      _img.style.left = "".concat(-100 * p, "%");
-      next.appendChild(_img);
+              _img.src = images[current];
+              _img.style.left = "".concat(-100 * p, "%");
+              next.appendChild(_img);
 
-      if ((p - Math.max(0, dir)) % 2) {
-        down(_part, next);
-      } else {
-        up(_part, next);
-      }
-    }
-  }
-}
-
-window.addEventListener("keydown", function (e) {
-  if (["ArrowDown", "ArrowRight"].includes(e.key)) {
-    go(1);
-  } else if (["ArrowUp", "ArrowLeft"].includes(e.key)) {
-    go(-1);
-  }
-});
-
-function lerp(start, end, amount) {
-  return (1 - amount) * start + amount * end;
-} // const cursor = document.createElement('div');
-// cursor.className = 'cursor';
-// const cursorF = document.createElement('div');
-// cursorF.className = 'cursor-f';
-// let cursorX = 0;
-// let cursorY = 0;
-// let pageX = 0;
-// let pageY = 0;
-// let size = 8;
-// let sizeF = 36;
-// let followSpeed = .16;
-// document.body.appendChild(cursor);
-// document.body.appendChild(cursorF);
-// if ('ontouchstart' in window) {
-//   cursor.style.display = 'none';
-//   cursorF.style.display = 'none';
-// }
-// cursor.style.setProperty('width', size+'px');
-// cursor.style.setProperty('height', size+'px');
-// cursorF.style.setProperty('width', sizeF+'px');
-// cursorF.style.setProperty('height', sizeF+'px');
-
-
-window.addEventListener("mousemove", function (e) {
-  pageX = e.clientX;
-  pageY = e.clientY; // cursor.style.left = e.clientX-size/2+'px';
-  // cursor.style.top = e.clientY-size/2+'px';
-}); // function loop() {
-//   cursorX = lerp(cursorX, pageX, followSpeed);
-//   cursorY = lerp(cursorY, pageY, followSpeed);
-//   cursorF.style.top = cursorY - sizeF/2 + 'px';
-//   cursorF.style.left = cursorX - sizeF/2 + 'px';
-//   requestAnimationFrame(loop);
-// }
-// loop();
-// let startY;
-// let endY;
-// let clicked = false;
-// function mousedown(e) {
-//   gsap.to(cursor, {scale: 4.5});
-//   gsap.to(cursorF, {scale: .4});
-//   clicked = true;
-//   startY = e.clientY || e.touches[0].clientY || e.targetTouches[0].clientY;
-// }
-// function mouseup(e) {
-//   gsap.to(cursor, {scale: 1});
-//   gsap.to(cursorF, {scale: 1});
-//   endY = e.clientY || endY;
-//   if (clicked && startY && Math.abs(startY - endY) >= 40) {
-//     go(!Math.min(0, startY - endY)?1:-1);
-//     clicked = false;
-//     startY = null;
-//     endY = null;
-//   }
-// }
-// window.addEventListener('mousedown', mousedown, false);
-// window.addEventListener('touchstart', mousedown, false);
-// window.addEventListener('touchmove', function(e) {
-//   if (clicked) {
-//     endY = e.touches[0].clientY || e.targetTouches[0].clientY;
-//   }
-// }, false);
-// window.addEventListener('touchend', mouseup, false);
-// window.addEventListener('mouseup', mouseup, false);
-
-var scrollTimeout;
-
-function wheel(e) {
-  clearTimeout(scrollTimeout);
-  setTimeout(function () {
-    if (e.deltaY < -40) {
-      go(-1);
-    } else if (e.deltaY >= 40) {
-      go(1);
-    }
-  });
-}
-
-window.addEventListener("mousewheel", wheel, false);
-window.addEventListener("wheel", wheel, false);
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
-var global = arguments[3];
-var OVERLAY_ID = '__parcel__error__overlay__';
-var OldModule = module.bundle.Module;
-
-function Module(moduleName) {
-  OldModule.call(this, moduleName);
-  this.hot = {
-    data: module.bundle.hotData,
-    _acceptCallbacks: [],
-    _disposeCallbacks: [],
-    accept: function (fn) {
-      this._acceptCallbacks.push(fn || function () {});
-    },
-    dispose: function (fn) {
-      this._disposeCallbacks.push(fn);
-    }
-  };
-  module.bundle.hotData = null;
-}
-
-module.bundle.Module = Module;
-var checkedAssets, assetsToAccept;
-var parent = module.bundle.parent;
-
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
-  var hostname = "" || location.hostname;
-  var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58093" + '/');
-
-  ws.onmessage = function (event) {
-    checkedAssets = {};
-    assetsToAccept = [];
-    var data = JSON.parse(event.data);
-
-    if (data.type === 'update') {
-      var handled = false;
-      data.assets.forEach(function (asset) {
-        if (!asset.isNew) {
-          var didAccept = hmrAcceptCheck(global.parcelRequire, asset.id);
-
-          if (didAccept) {
-            handled = true;
+              if ((p - Math.max(0, dir)) % 2) {
+                down(_part, next);
+              } else {
+                up(_part, next);
+              }
+            }
           }
         }
-      }); // Enable HMR for CSS by default.
 
-      handled = handled || data.assets.every(function (asset) {
-        return asset.type === 'css' && asset.generated.js;
-      });
-
-      if (handled) {
-        console.clear();
-        data.assets.forEach(function (asset) {
-          hmrApply(global.parcelRequire, asset);
+        window.addEventListener("keydown", function (e) {
+          if (["ArrowDown", "ArrowRight"].includes(e.key)) {
+            go(1);
+          } else if (["ArrowUp", "ArrowLeft"].includes(e.key)) {
+            go(-1);
+          }
         });
-        assetsToAccept.forEach(function (v) {
-          hmrAcceptRun(v[0], v[1]);
-        });
-      } else if (location.reload) {
-        // `location` global exists in a web worker context but lacks `.reload()` function.
-        location.reload();
-      }
-    }
 
-    if (data.type === 'reload') {
-      ws.close();
+        function lerp(start, end, amount) {
+          return (1 - amount) * start + amount * end;
+        } // const cursor = document.createElement('div');
+        // cursor.className = 'cursor';
+        // const cursorF = document.createElement('div');
+        // cursorF.className = 'cursor-f';
+        // let cursorX = 0;
+        // let cursorY = 0;
+        // let pageX = 0;
+        // let pageY = 0;
+        // let size = 8;
+        // let sizeF = 36;
+        // let followSpeed = .16;
+        // document.body.appendChild(cursor);
+        // document.body.appendChild(cursorF);
+        // if ('ontouchstart' in window) {
+        //   cursor.style.display = 'none';
+        //   cursorF.style.display = 'none';
+        // }
+        // cursor.style.setProperty('width', size+'px');
+        // cursor.style.setProperty('height', size+'px');
+        // cursorF.style.setProperty('width', sizeF+'px');
+        // cursorF.style.setProperty('height', sizeF+'px');
 
-      ws.onclose = function () {
-        location.reload();
-      };
-    }
+        window.addEventListener("mousemove", function (e) {
+          pageX = e.clientX;
+          pageY = e.clientY; // cursor.style.left = e.clientX-size/2+'px';
+          // cursor.style.top = e.clientY-size/2+'px';
+        }); // function loop() {
+        //   cursorX = lerp(cursorX, pageX, followSpeed);
+        //   cursorY = lerp(cursorY, pageY, followSpeed);
+        //   cursorF.style.top = cursorY - sizeF/2 + 'px';
+        //   cursorF.style.left = cursorX - sizeF/2 + 'px';
+        //   requestAnimationFrame(loop);
+        // }
+        // loop();
+        // let startY;
+        // let endY;
+        // let clicked = false;
+        // function mousedown(e) {
+        //   gsap.to(cursor, {scale: 4.5});
+        //   gsap.to(cursorF, {scale: .4});
+        //   clicked = true;
+        //   startY = e.clientY || e.touches[0].clientY || e.targetTouches[0].clientY;
+        // }
+        // function mouseup(e) {
+        //   gsap.to(cursor, {scale: 1});
+        //   gsap.to(cursorF, {scale: 1});
+        //   endY = e.clientY || endY;
+        //   if (clicked && startY && Math.abs(startY - endY) >= 40) {
+        //     go(!Math.min(0, startY - endY)?1:-1);
+        //     clicked = false;
+        //     startY = null;
+        //     endY = null;
+        //   }
+        // }
+        // window.addEventListener('mousedown', mousedown, false);
+        // window.addEventListener('touchstart', mousedown, false);
+        // window.addEventListener('touchmove', function(e) {
+        //   if (clicked) {
+        //     endY = e.touches[0].clientY || e.targetTouches[0].clientY;
+        //   }
+        // }, false);
+        // window.addEventListener('touchend', mouseup, false);
+        // window.addEventListener('mouseup', mouseup, false);
 
-    if (data.type === 'error-resolved') {
-      console.log('[parcel] ✨ Error resolved');
-      removeErrorOverlay();
-    }
+        var scrollTimeout;
 
-    if (data.type === 'error') {
-      console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
-      removeErrorOverlay();
-      var overlay = createErrorOverlay(data);
-      document.body.appendChild(overlay);
-    }
-  };
-}
+        function wheel(e) {
+          clearTimeout(scrollTimeout);
+          setTimeout(function () {
+            if (e.deltaY < -40) {
+              go(-1);
+            } else if (e.deltaY >= 40) {
+              go(1);
+            }
+          });
+        }
 
-function removeErrorOverlay() {
-  var overlay = document.getElementById(OVERLAY_ID);
+        window.addEventListener("mousewheel", wheel, false);
+        window.addEventListener("wheel", wheel, false);
+      },
+      {},
+    ],
+    "../node_modules/parcel-bundler/src/builtins/hmr-runtime.js": [
+      function (require, module, exports) {
+        var global = arguments[3];
+        var OVERLAY_ID = "__parcel__error__overlay__";
+        var OldModule = module.bundle.Module;
 
-  if (overlay) {
-    overlay.remove();
-  }
-}
+        function Module(moduleName) {
+          OldModule.call(this, moduleName);
+          this.hot = {
+            data: module.bundle.hotData,
+            _acceptCallbacks: [],
+            _disposeCallbacks: [],
+            accept: function (fn) {
+              this._acceptCallbacks.push(fn || function () {});
+            },
+            dispose: function (fn) {
+              this._disposeCallbacks.push(fn);
+            },
+          };
+          module.bundle.hotData = null;
+        }
 
-function createErrorOverlay(data) {
-  var overlay = document.createElement('div');
-  overlay.id = OVERLAY_ID; // html encode message and stack trace
+        module.bundle.Module = Module;
+        var checkedAssets, assetsToAccept;
+        var parent = module.bundle.parent;
 
-  var message = document.createElement('div');
-  var stackTrace = document.createElement('pre');
-  message.innerText = data.error.message;
-  stackTrace.innerText = data.error.stack;
-  overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
-  return overlay;
-}
+        if (
+          (!parent || !parent.isParcelRequire) &&
+          typeof WebSocket !== "undefined"
+        ) {
+          var hostname = "" || location.hostname;
+          var protocol = location.protocol === "https:" ? "wss" : "ws";
+          var ws = new WebSocket(
+            protocol + "://" + hostname + ":" + "58093" + "/"
+          );
 
-function getParents(bundle, id) {
-  var modules = bundle.modules;
+          ws.onmessage = function (event) {
+            checkedAssets = {};
+            assetsToAccept = [];
+            var data = JSON.parse(event.data);
 
-  if (!modules) {
-    return [];
-  }
+            if (data.type === "update") {
+              var handled = false;
+              data.assets.forEach(function (asset) {
+                if (!asset.isNew) {
+                  var didAccept = hmrAcceptCheck(
+                    global.parcelRequire,
+                    asset.id
+                  );
 
-  var parents = [];
-  var k, d, dep;
+                  if (didAccept) {
+                    handled = true;
+                  }
+                }
+              }); // Enable HMR for CSS by default.
 
-  for (k in modules) {
-    for (d in modules[k][1]) {
-      dep = modules[k][1][d];
+              handled =
+                handled ||
+                data.assets.every(function (asset) {
+                  return asset.type === "css" && asset.generated.js;
+                });
 
-      if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-        parents.push(k);
-      }
-    }
-  }
+              if (handled) {
+                console.clear();
+                data.assets.forEach(function (asset) {
+                  hmrApply(global.parcelRequire, asset);
+                });
+                assetsToAccept.forEach(function (v) {
+                  hmrAcceptRun(v[0], v[1]);
+                });
+              } else if (location.reload) {
+                // `location` global exists in a web worker context but lacks `.reload()` function.
+                location.reload();
+              }
+            }
 
-  if (bundle.parent) {
-    parents = parents.concat(getParents(bundle.parent, id));
-  }
+            if (data.type === "reload") {
+              ws.close();
 
-  return parents;
-}
+              ws.onclose = function () {
+                location.reload();
+              };
+            }
 
-function hmrApply(bundle, asset) {
-  var modules = bundle.modules;
+            if (data.type === "error-resolved") {
+              console.log("[parcel] ✨ Error resolved");
+              removeErrorOverlay();
+            }
 
-  if (!modules) {
-    return;
-  }
+            if (data.type === "error") {
+              console.error(
+                "[parcel] 🚨  " + data.error.message + "\n" + data.error.stack
+              );
+              removeErrorOverlay();
+              var overlay = createErrorOverlay(data);
+              document.body.appendChild(overlay);
+            }
+          };
+        }
 
-  if (modules[asset.id] || !bundle.parent) {
-    var fn = new Function('require', 'module', 'exports', asset.generated.js);
-    asset.isNew = !modules[asset.id];
-    modules[asset.id] = [fn, asset.deps];
-  } else if (bundle.parent) {
-    hmrApply(bundle.parent, asset);
-  }
-}
+        function removeErrorOverlay() {
+          var overlay = document.getElementById(OVERLAY_ID);
 
-function hmrAcceptCheck(bundle, id) {
-  var modules = bundle.modules;
+          if (overlay) {
+            overlay.remove();
+          }
+        }
 
-  if (!modules) {
-    return;
-  }
+        function createErrorOverlay(data) {
+          var overlay = document.createElement("div");
+          overlay.id = OVERLAY_ID; // html encode message and stack trace
 
-  if (!modules[id] && bundle.parent) {
-    return hmrAcceptCheck(bundle.parent, id);
-  }
+          var message = document.createElement("div");
+          var stackTrace = document.createElement("pre");
+          message.innerText = data.error.message;
+          stackTrace.innerText = data.error.stack;
+          overlay.innerHTML =
+            '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' +
+            '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' +
+            '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' +
+            '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' +
+            message.innerHTML +
+            "</div>" +
+            "<pre>" +
+            stackTrace.innerHTML +
+            "</pre>" +
+            "</div>";
+          return overlay;
+        }
 
-  if (checkedAssets[id]) {
-    return;
-  }
+        function getParents(bundle, id) {
+          var modules = bundle.modules;
 
-  checkedAssets[id] = true;
-  var cached = bundle.cache[id];
-  assetsToAccept.push([bundle, id]);
+          if (!modules) {
+            return [];
+          }
 
-  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-    return true;
-  }
+          var parents = [];
+          var k, d, dep;
 
-  return getParents(global.parcelRequire, id).some(function (id) {
-    return hmrAcceptCheck(global.parcelRequire, id);
-  });
-}
+          for (k in modules) {
+            for (d in modules[k][1]) {
+              dep = modules[k][1][d];
 
-function hmrAcceptRun(bundle, id) {
-  var cached = bundle.cache[id];
-  bundle.hotData = {};
+              if (
+                dep === id ||
+                (Array.isArray(dep) && dep[dep.length - 1] === id)
+              ) {
+                parents.push(k);
+              }
+            }
+          }
 
-  if (cached) {
-    cached.hot.data = bundle.hotData;
-  }
+          if (bundle.parent) {
+            parents = parents.concat(getParents(bundle.parent, id));
+          }
 
-  if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
-    cached.hot._disposeCallbacks.forEach(function (cb) {
-      cb(bundle.hotData);
-    });
-  }
+          return parents;
+        }
 
-  delete bundle.cache[id];
-  bundle(id);
-  cached = bundle.cache[id];
+        function hmrApply(bundle, asset) {
+          var modules = bundle.modules;
 
-  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-    cached.hot._acceptCallbacks.forEach(function (cb) {
-      cb();
-    });
+          if (!modules) {
+            return;
+          }
 
-    return true;
-  }
-}
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/slider_gallery.js"], null)
+          if (modules[asset.id] || !bundle.parent) {
+            var fn = new Function(
+              "require",
+              "module",
+              "exports",
+              asset.generated.js
+            );
+            asset.isNew = !modules[asset.id];
+            modules[asset.id] = [fn, asset.deps];
+          } else if (bundle.parent) {
+            hmrApply(bundle.parent, asset);
+          }
+        }
+
+        function hmrAcceptCheck(bundle, id) {
+          var modules = bundle.modules;
+
+          if (!modules) {
+            return;
+          }
+
+          if (!modules[id] && bundle.parent) {
+            return hmrAcceptCheck(bundle.parent, id);
+          }
+
+          if (checkedAssets[id]) {
+            return;
+          }
+
+          checkedAssets[id] = true;
+          var cached = bundle.cache[id];
+          assetsToAccept.push([bundle, id]);
+
+          if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+            return true;
+          }
+
+          return getParents(global.parcelRequire, id).some(function (id) {
+            return hmrAcceptCheck(global.parcelRequire, id);
+          });
+        }
+
+        function hmrAcceptRun(bundle, id) {
+          var cached = bundle.cache[id];
+          bundle.hotData = {};
+
+          if (cached) {
+            cached.hot.data = bundle.hotData;
+          }
+
+          if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
+            cached.hot._disposeCallbacks.forEach(function (cb) {
+              cb(bundle.hotData);
+            });
+          }
+
+          delete bundle.cache[id];
+          bundle(id);
+          cached = bundle.cache[id];
+
+          if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+            cached.hot._acceptCallbacks.forEach(function (cb) {
+              cb();
+            });
+
+            return true;
+          }
+        }
+      },
+      {},
+    ],
+  },
+  {},
+  [
+    "../node_modules/parcel-bundler/src/builtins/hmr-runtime.js",
+    "js/slider_gallery.js",
+  ],
+  null
+);
