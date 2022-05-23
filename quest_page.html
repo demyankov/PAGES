@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&family=Oswald:wght@300;400;600;700&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500&family=Rubik+Beastly&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="normalize.b6182ef6.css">
-  <link rel="stylesheet" href="quests_styles.ded12f5a.css">
-  <link rel="stylesheet" href="slider_feedback.13cd9ac0.css">
+<link rel="stylesheet" href="./styles/normalize.css">
+  <link rel="stylesheet" href="./styles/quests_styles.css">
+  <link rel="stylesheet" href="./Slider_feedback/css/slider_feedback.css">
   <title>BLACK ROOM</title>
    
   
-<script src="quests_styles.ded12f5a.js"></script></head>
+</head>
 
 <body>
   <header class="wrapper" id="wrapper">         
@@ -19,15 +20,15 @@
         <div class="logo">
         </div>
         <nav class="navigation-wrapper">
-            <ul class="navigation">
-                <li><a class="navigation__reference" href="index.html">Главная</a></li>
+            <ul  class="navigation">
+                <li><a class="navigation__reference" href="./index.html">Главная</a></li>
                 <li><a class="navigation__reference" href="">Акции</a></li>
-                <li><a class="navigation__reference" href="">Отзывы</a></li>
-                <li><a class="navigation__reference" href="">Контакты</a></li>
-                <li><a class="navigation__reference" href="agreement.html">Правила</a></li>
+                <li><a class="navigation__reference" href="./index.html#section-feedback">Отзывы</a></li>
+                <li><a class="navigation__reference" href="./index.html#section-footer">Контакты</a></li>
+                <li><a class="navigation__reference" href="./agreement.html">Правила</a></li>
             </ul>
         </nav>
-        <div class="question" role="questions">
+        <div class="question">
             <a href="">Задать вопрос</a>
             <a href="">Как проехать</a>
         </div>
@@ -47,8 +48,8 @@
     
 </header>
   <main>
-<!-- -------------SECTION BANNER------------------ -->
-<section class="banner" id="banner">  
+<!--SECTION BANNER-->
+<section class = 'banner' id="banner">  
 <div class="banner__wrapper container">
 <canvas id="canvas" style="position:absolute; top:0; left:0;"></canvas>
 	<div id="buffer" style="display:none;"></div>
@@ -57,15 +58,18 @@
     <h1 class="white-mode">Затащи меня в ад</h1> 
     <h3>пер. Северный, 13, к.5</h3> 
     <a class="btn btn_to-booking" href="#section-booking"><span>ЗАБРОНИРОВАТЬ</span></a>  
+  </div>
 </div>
-</div></section>
+</section>
 
-<!-- -------------SECTION ABOUT------------------ -->
+<!-- SECTION ABOUT -->
     <section class="about section-padding">
       <div class="container">
         <div class="section-header">
           <h3>Описание</h3> 
-          <svg version="1.1" id="Capa_1" fill="#ffee00" x="0px" y="0px" width="54.483px" height="54.483px" viewBox="0 0 54.483 54.483" style="enable-background:new 0 0 54.483 54.483;" xml:space="preserve">
+          <svg fill="#ffee00" x="0px" y="0px"
+          width="54.483px" height="54.483px" viewBox="0 0 54.483 54.483" style="enable-background:new 0 0 54.483 54.483;"
+          xml:space="preserve">
        <g>
          <path d="M29.77,35.434h16.077v2.336H29.77V35.434z M29.77,32.2h16.077v-2.336H29.77V32.2z M37.802,24.165H29.77V26.5h8.032V24.165z
             M37.802,17.899H29.77v2.336h8.032V17.899z M29.77,43.308h16.077v-2.336H29.77V43.308z M54.483,10.152v39.005H26.561v0.055
@@ -74,7 +78,7 @@
             M26.561,46.358h21.121V12.954h-2.689V26.79l-2.835-2.628l-2.829,2.628V12.954H26.563v33.404H26.561z M22.359,16.529l-10.736-3.575
            l-3.765-1.253l-0.419,1.253l-0.325,0.962l14.5,4.828L22.359,16.529z M22.359,22.79l-14.5-4.828l-0.739,2.217l14.501,4.828
            L22.359,22.79z M22.359,29.049l-14.5-4.829l-0.739,2.217l14.501,4.829L22.359,29.049z M22.359,35.311l-14.5-4.824l-0.739,2.215
-           l14.501,4.824L22.359,35.311z M22.359,40.854l-14.5-4.831L7.119,38.24l14.501,4.829L22.359,40.854z"></path>
+           l14.501,4.824L22.359,35.311z M22.359,40.854l-14.5-4.831L7.119,38.24l14.501,4.829L22.359,40.854z"/>
        </g>
        </svg>
         </div>
@@ -83,7 +87,7 @@
       <p>Готовы ли вы побороть свой страх и дойти до конца, спасаясь от проклятия? Вам придется отправиться туда, где время превращается в вечность и опасность подстерегает за каждым поворотом. Преисподняя поглотит ваши души и разум.</p>
       <blockquote> <span>« </span>Vos can tantum aufero maledictionem a victis daemones<span> »</span></blockquote>
       <h4>Дополнительные условия</h4>
-      <p>Возрастные ограниченя: от <span>14</span> лет с сопровождением совершеннослетних, от <span>16</span> лет - самостоятельно.</p>
+      <p >Возрастные ограниченя: от <span>14</span> лет с сопровождением совершеннослетних, от <span>16</span> лет - самостоятельно.</p>
       <p>До начала прохождения квеста рекомендуем ознакомиться с режимами игры (уровнями взаимодействия актеров с игроками).</p>
       <p>Жанр квеста - хоррор-перформанс.</p>
       <p>Возможно проведение корпоратичных игр для больших компаний одновременно с другими квестами, расположенными поблизости</p>
@@ -91,15 +95,15 @@
     </div>
     </section>
 
-<!-- -------------SECTION STATISTICS----------------- -->
+<!--SECTION STATISTICS-->
     <section id="section-statistics" class="section-padding">
       <div class="statistics container">
           <div class="statistics__item">
               <div class="statistics__item-flex">
               <div class="statistics__item-img">
               <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M.221 16.268a15.064 15.064 0 0 0 1.789 1.9C2.008 18.111 2 18.057 2 18a5.029 5.029 0 0 1 3.233-4.678 1 1 0 0 0 .175-1.784A2.968 2.968 0 0 1 4 9a2.988 2.988 0 0 1 5.022-2.2 5.951 5.951 0 0 1 2.022-.715 4.994 4.994 0 1 0-7.913 6.085 7.07 7.07 0 0 0-2.91 4.098zM23.779 16.268a7.07 7.07 0 0 0-2.91-4.1 4.994 4.994 0 1 0-7.913-6.086 5.949 5.949 0 0 1 2.022.715 2.993 2.993 0 1 1 3.614 4.74 1 1 0 0 0 .175 1.784A5.029 5.029 0 0 1 22 18c0 .057-.008.111-.01.167a15.065 15.065 0 0 0 1.789-1.899z"></path>
-                  <path d="M18.954 20.284a7.051 7.051 0 0 0-3.085-5.114A4.956 4.956 0 0 0 17 12a5 5 0 1 0-8.869 3.17 7.051 7.051 0 0 0-3.085 5.114 14.923 14.923 0 0 0 1.968.849C7.012 21.088 7 21.046 7 21a5.031 5.031 0 0 1 3.233-4.678 1 1 0 0 0 .175-1.785A2.964 2.964 0 0 1 9 12a3 3 0 1 1 6 0 2.964 2.964 0 0 1-1.408 2.537 1 1 0 0 0 .175 1.785A5.031 5.031 0 0 1 17 21c0 .046-.012.088-.013.133a14.919 14.919 0 0 0 1.967-.849z"></path>
+                  <path d="M.221 16.268a15.064 15.064 0 0 0 1.789 1.9C2.008 18.111 2 18.057 2 18a5.029 5.029 0 0 1 3.233-4.678 1 1 0 0 0 .175-1.784A2.968 2.968 0 0 1 4 9a2.988 2.988 0 0 1 5.022-2.2 5.951 5.951 0 0 1 2.022-.715 4.994 4.994 0 1 0-7.913 6.085 7.07 7.07 0 0 0-2.91 4.098zM23.779 16.268a7.07 7.07 0 0 0-2.91-4.1 4.994 4.994 0 1 0-7.913-6.086 5.949 5.949 0 0 1 2.022.715 2.993 2.993 0 1 1 3.614 4.74 1 1 0 0 0 .175 1.784A5.029 5.029 0 0 1 22 18c0 .057-.008.111-.01.167a15.065 15.065 0 0 0 1.789-1.899z"/>
+                  <path d="M18.954 20.284a7.051 7.051 0 0 0-3.085-5.114A4.956 4.956 0 0 0 17 12a5 5 0 1 0-8.869 3.17 7.051 7.051 0 0 0-3.085 5.114 14.923 14.923 0 0 0 1.968.849C7.012 21.088 7 21.046 7 21a5.031 5.031 0 0 1 3.233-4.678 1 1 0 0 0 .175-1.785A2.964 2.964 0 0 1 9 12a3 3 0 1 1 6 0 2.964 2.964 0 0 1-1.408 2.537 1 1 0 0 0 .175 1.785A5.031 5.031 0 0 1 17 21c0 .046-.012.088-.013.133a14.919 14.919 0 0 0 1.967-.849z"/>
                 </svg>              
               </div> 
           </div>  
@@ -109,7 +113,9 @@
           <div class="statistics__item">
               <div class="statistics__item-flex">
               <div class="statistics__item-img">
-                  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="485.213px" height="485.212px" viewBox="0 0 485.213 485.212" style="enable-background:new 0 0 485.213 485.212;" xml:space="preserve">
+                  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  width="485.213px" height="485.212px" viewBox="0 0 485.213 485.212" style="enable-background:new 0 0 485.213 485.212;"
+                  xml:space="preserve">
              <g>
                  <path d="M242.607,0C108.629,0,0.001,108.628,0.001,242.606c0,133.976,108.628,242.606,242.606,242.606
                      c133.978,0,242.604-108.631,242.604-242.606C485.212,108.628,376.585,0,242.607,0z M257.771,454.116v-29.557h-30.327v29.557
@@ -119,7 +125,7 @@
                      c0.691,2.577,1.582,5.066,1.582,7.848c0,16.762-13.581,30.324-30.326,30.324c-16.75,0-30.327-13.562-30.327-30.324l-82.299-47.503
                      c-7.257-4.203-9.743-13.474-5.554-20.729c4.174-7.285,13.459-9.771,20.715-5.565l82.775,47.798
                      c4.411-2.487,9.239-4.324,14.69-4.324c8.471,0,16.092,3.494,21.604,9.122l79.648-46.024
-                     C347.416,173.277,352.064,174.521,354.226,178.163z"></path>
+                     C347.416,173.277,352.064,174.521,354.226,178.163z"/>
              </g>     
              </svg>
           </div> 
@@ -131,13 +137,14 @@
           <div class="statistics__item">
               <div class="statistics__item-flex">
               <div class="statistics__item-img">
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
              <g>
                  <g>
                      <path d="M424.099,238.647c-26.447,0-47.962,21.516-47.962,47.963c0,26.446,21.515,47.962,47.962,47.962
                          c26.447,0,47.963-21.516,47.963-47.962C472.062,260.163,450.546,238.647,424.099,238.647z M424.099,318.526
                          c-17.597,0-31.915-14.317-31.915-31.915c0-17.598,14.317-31.916,31.915-31.916c17.598,0,31.916,14.317,31.916,31.916
-                         C456.015,304.208,441.697,318.526,424.099,318.526z"></path>
+                         C456.015,304.208,441.697,318.526,424.099,318.526z"/>
                  </g>
              </g>
              <g>
@@ -180,7 +187,7 @@
                          c-6.587,0-11.946-5.359-11.946-11.946v-25.258h23.891V479.647z M392.184,438.342v-77.143h63.83v77.143H392.184z M456.015,479.647
                          L456.015,479.647c0,6.587-5.359,11.946-11.946,11.946h-0.001c-6.587,0-11.945-5.359-11.945-11.946v-25.258h23.892V479.647z
                           M484.007,438.342c-6.587,0-11.946-5.359-11.946-11.947v-65.197h12.472c6.297,0,11.419,5.122,11.419,11.419v53.777h0
-                         C495.953,432.982,490.594,438.342,484.007,438.342z"></path>
+                         C495.953,432.982,490.594,438.342,484.007,438.342z"/>
                  </g>     </g>          
              </svg>
               </div>
@@ -200,19 +207,19 @@
         <div class="statistics__item">
           <div class="statistics__item-flex">
           <div class="statistics__item-img">
-            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 59 59" style="enable-background:new 0 0 59 59;" xml:space="preserve">
-         <g>
+            <svg x="0px" y="0px" viewBox="0 0 59 59" style="enable-background:new 0 0 59 59;" xml:space="preserve">
+         <!-- <g> -->
            <path d="M20.95,38.676c2.452,0,4.61-1.27,5.861-3.184c1.439,3.058,4.542,5.184,8.139,5.184c4.963,0,9-4.037,9-9s-4.037-9-9-9
              c-3.598,0-6.7,2.126-8.139,5.184c-1.251-1.914-3.409-3.184-5.861-3.184c-3.859,0-7,3.141-7,7S17.091,38.676,20.95,38.676z
               M34.95,24.676c3.859,0,7,3.141,7,7s-3.141,7-7,7s-7-3.141-7-7S31.091,24.676,34.95,24.676z M20.95,26.676c2.757,0,5,2.243,5,5
-             s-2.243,5-5,5s-5-2.243-5-5S18.193,26.676,20.95,26.676z"></path>
-           <circle cx="20.95" cy="31.676" r="2"></circle>
-           <circle cx="34.95" cy="31.676" r="3"></circle>
+             s-2.243,5-5,5s-5-2.243-5-5S18.193,26.676,20.95,26.676z"/>
+           <circle cx="20.95" cy="31.676" r="2"/>
+           <circle cx="34.95" cy="31.676" r="3"/>
            <path d="M43.293,45.706c-1.18,1.178-3.406,1.178-4.586,0c-1.939-1.939-5.475-1.939-7.414,0c-0.56,0.559-1.395,0.88-2.293,0.88
              s-1.733-0.321-2.293-0.88c-1.939-1.939-5.475-1.939-7.414,0c-1.223,1.223-3.452,1.307-4.586,0.173
              c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414c0.916,0.916,2.216,1.37,3.538,1.37c1.412,0,2.851-0.518,3.876-1.543
              c1.18-1.178,3.406-1.178,4.586,0c0.932,0.932,2.282,1.466,3.707,1.466s2.775-0.534,3.707-1.466c1.18-1.178,3.406-1.178,4.586,0
-             c0.932,0.932,2.282,1.466,3.707,1.466s2.775-0.534,3.707-1.466c0.391-0.391,0.391-1.023,0-1.414S43.684,45.315,43.293,45.706z"></path>
+             c0.932,0.932,2.282,1.466,3.707,1.466s2.775-0.534,3.707-1.466c0.391-0.391,0.391-1.023,0-1.414S43.684,45.315,43.293,45.706z"/>
            <path d="M29.5,0C14.888,0,3,11.888,3,26.5v10.979c0,0,0,0.002,0,0.004s0,0.004,0,0.006c0,0.004,0,0.008,0,0.012V51
              c0,2.757,2.243,5,5,5h6.55c0.046,0.022,0.096,0.04,0.142,0.061c3.51,1.654,7.728,2.643,12.543,2.878
              c0.107,0.005,0.214,0.011,0.321,0.016C28.195,58.982,28.84,59,29.5,59s1.305-0.018,1.945-0.045c0.107-0.005,0.214-0.01,0.321-0.016
@@ -224,10 +231,9 @@
              C5.012,24.628,15.796,13.647,29,13l0.951-0.001C43.212,13.647,54,24.639,54,37.5c0,7.595-3.548,13.283-9.919,16.5H43.992z M8,54
              c-1.654,0-3-1.346-3-3v-4.226c1.384,2.876,3.459,5.308,6.148,7.226H8z M54,51c0,1.654-1.346,3-3,3h-3.148
              c2.689-1.917,4.764-4.349,6.148-7.226V51z M30,11l-1.049,0.001C18.165,11.529,8.911,18.42,5,27.736V26.5C5,12.99,15.99,2,29.5,2
-             S54,12.99,54,26.5v1.198C50.079,18.398,40.811,11.528,30,11z"></path>
-         </g>
-         <g>
-                 </g></svg>
+             S54,12.99,54,26.5v1.198C50.079,18.398,40.811,11.528,30,11z"/>
+          <!-- <g> -->
+        </svg>
         </div>                       </div> 
           <h4 class="statistics__item-h">Страх:</h4>
           <h4 class="statistics__item-value"><span>3/5</span></h4>    
@@ -236,30 +242,30 @@
       <div class="statistics__item">
         <div class="statistics__item-flex">
         <div class="statistics__item-img">
-          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 57.589 57.589" style="enable-background:new 0 0 57.589 57.589;" xml:space="preserve">
+          <svg x="0px" y="0px" viewBox="0 0 57.589 57.589" style="enable-background:new 0 0 57.589 57.589;" xml:space="preserve">
            <g>
              <g>
-               <circle style="fill:#010002;" cx="14.743" cy="7.173" r="4.375"></circle>
+               <circle style="fill:#010002;" cx="14.743" cy="7.173" r="4.375"/>
                <path style="fill:#010002;" d="M27.007,26.171c2.925,0.243,3.82-4.268,0.874-4.514c-4.583-0.382-8.752-1.636-10.061-5.859
                  c-0.037-0.119-0.087-0.219-0.136-0.322c-0.465-2.581-2.771-3.485-4.896-3.053c-0.097-0.023-0.19-0.051-0.294-0.063
                  c-5.421-0.623-10.147,2.135-12.287,7.152c-1.148,2.694,2.81,5.038,3.969,2.319c1.064-2.494,2.655-4.044,4.8-4.653
                  c0.003,0.052,0.001,0.102,0.006,0.154c0,0-2.022,7.993-2.939,12.867c-0.461,0.735-0.61,1.364-0.538,1.905L0.397,51.3
                  c-1.208,3.148,3.67,5.013,4.874,1.871L9.67,36.544c2.619,1.072,5.04,2.527,6.149,5.277c1.1,2.727-0.64,6.207-1.979,8.489
                  c-1.689,2.879,2.535,5.948,4.24,3.045c2.329-3.972,4.146-8.56,2.662-13.163c-1.114-3.451-3.788-5.79-6.868-7.434l2.493-10.804
-                 C19.019,24.494,22.923,25.83,27.007,26.171z"></path>
+                 C19.019,24.494,22.923,25.83,27.007,26.171z"/>
                <path style="fill:#010002;" d="M57.427,31.395c-1.733-6.634-5.365-12.496-10.436-17.101c-1.777-1.615-3.821-1.332-5.266-0.188
                  c-4.646-0.862-9.287-1.725-13.935-2.587c-3.253-0.604-4.19,4.439-0.937,5.044c4.403,0.817,8.802,1.635,13.206,2.452
                  c0.215,0.673,0.621,1.325,1.265,1.909c3.188,2.897,5.433,6.381,6.903,10.309c-7.911,1.237-14.996,5.418-19.588,12.371
                  c-1.801,2.728,2.065,6.108,3.881,3.354c3.307-5.007,7.803-8.238,13.033-9.834c-1.521,1.387-2.972,2.854-4.416,4.275
                  c-2.365,2.328,1.543,5.658,3.883,3.354c2.906-2.858,5.771-5.854,9.395-7.814c0.016-0.008,0.027-0.02,0.041-0.023
-                 C56.473,36.149,58.125,34.068,57.427,31.395z"></path>
-               <circle style="fill:#010002;" cx="41.304" cy="8.305" r="4.105"></circle>
+                 C56.473,36.149,58.125,34.068,57.427,31.395z"/>
+               <circle style="fill:#010002;" cx="41.304" cy="8.305" r="4.105"/>
                <path style="fill:#010002;" d="M36.328,24.246l0.291-0.451l-0.521-0.136c-1.229-0.323-2.242-1.263-2.666-2.469l-0.104-0.295
                  l-0.31,0.039c-0.301,0.034-0.601,0.038-0.879,0.007l-0.287-0.031l-0.082,0.774l0.283,0.031c0.246,0.027,0.5,0.032,0.752,0.018
                  c0.492,1.151,1.451,2.08,2.619,2.526c-0.25,0.497-0.408,1.026-0.471,1.582c-0.02,0.153-0.023,0.312-0.023,0.482
                  c-1.312,0.737-2.186,2.052-2.348,3.552c-0.013,0.111-0.017,0.228-0.021,0.348l-0.01,0.287l0.287,0.014l0.491-0.021l0.011-0.262
                  c0.002-0.092,0.004-0.188,0.014-0.275c0.146-1.325,0.945-2.466,2.146-3.06l0.226-0.113l-0.01-0.255
-                 c-0.013-0.228-0.008-0.427,0.014-0.61C35.795,25.325,35.997,24.759,36.328,24.246z"></path>
+                 c-0.013-0.228-0.008-0.427,0.014-0.61C35.795,25.325,35.997,24.759,36.328,24.246z"/>
              </g>
            </g>
            </svg> 
@@ -270,11 +276,11 @@
       </div>
     </section>
 
-     <!-- -------------SECTION GAME MODES------------------ -->
+     <!--SECTION GAME MODES-->
     <section class="section-game-modes section-padding">
       <div class="container game-modes">
         <div class="section-header">
-          <h3>Режимы игры</h3> 
+          <h3 >Режимы игры</h3> 
           <svg width="64px" height="64px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione-monotone" preserveAspectRatio="xMidYMid meet"><path d="M61.971 42.634c-.632-6.334-2.045-11.643-2.358-25.352c-.223-9.706-12.006-10.453-15.069-7.164c-3.471-4.255-12.762-4.354-16.229.94c-2.693-1.48-9.901-1.799-12.879 1.873c0 0-8.835-1.411-12.836 13.321c-1.437 5.289.12 12.302.41 13.756c2.023 10.147 10.502 8.19 12.209 7.2c2.892 7.44 10.375 6.101 13.385 3.913c.174 4.414 3.771 6.535 6.065 5.699c6.722-2.451 12.33-2.783 16.764-2.607c2.127.083 3.797-.938 4.741-2.779c3.325-1.733 6.148-5.279 5.797-8.8m-15.525.998c1.008-5.798-1.179-14.392-.4-20.936c-3.16 4.926-.82 18.871-2.146 24.525c-1.085 4.62-9.646 3.175-12.294-2.375c-.918-8.487.424-13.407-1.889-22.15c.218 10.57-1.415 12.539-.325 22.813c-2.524 2.592-11.239.768-11.679-3.621c-.587-5.858.628-10.459-1.099-16.139c0 5.369-1.062 8.233-.541 16.18c.003.049-1.556 1.24-3.869 1.24c-9.471 0-8.646-14.027-7.087-18.926c2.256-7.098 8.207-11.233 11.281-9.611c1.527-3.561 10.239-3.875 11.74-.539c1.296-6.143 13.705-5.645 17.005-.166c2.214-4.44 12.358-3.112 12.464 3.388c.235 14.059 2.284 20.641 2.203 26.796c-3.471 4.281-9.605 3.902-13.364-.479" fill="#ffee00"></path></svg>
         </div>
       <ul>
@@ -284,12 +290,12 @@
       </ul></div>
     </section>
 
-    <!-- -------------SECTION GALLERY------------------ -->
+    <!--SECTION GALLERY-->
     <section id="section-gallery" class="section-padding">
       <div class="slider-wrapper container">
        <div class="section-header">
       <h3>Галерея</h3> 
-      <svg version="1.1" fill="#ffee00" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 297 297" style="enable-background:new 0 0 297 297;" xml:space="preserve">
+      <svg fill="#ffee00" x="0px" y="0px" viewBox="0 0 297 297" style="enable-background:new 0 0 297 297;" xml:space="preserve">
 <g>
 	<path d="M268.338,64.67H203.56l-13.586-27.446c-1.667-3.368-5.101-5.499-8.858-5.499h-48.923c-3.758,0-7.19,2.131-8.857,5.499
 		L109.749,64.67H28.662C12.858,64.67,0,77.527,0,93.332v143.281c0,15.804,12.858,28.662,28.662,28.662h239.676
@@ -300,10 +306,10 @@
 		c36.239,0,65.724,29.597,65.724,65.976S220.815,244.056,184.576,244.056z M19.767,236.613V133.36h91.893
 		c-7.974,13.028-12.578,28.345-12.578,44.72c0,27.331,12.817,51.716,32.739,67.428H28.662
 		C23.757,245.508,19.767,241.518,19.767,236.613z M268.338,245.508h-31.009c19.922-15.712,32.737-40.097,32.737-67.428
-		c0-16.375-4.604-31.691-12.576-44.72h19.743v103.253C277.233,241.518,273.243,245.508,268.338,245.508z"></path>
+		c0-16.375-4.604-31.691-12.576-44.72h19.743v103.253C277.233,241.518,273.243,245.508,268.338,245.508z"/>
 	<path d="M184.576,127.988c-27.547,0-49.958,22.471-49.958,50.092s22.411,50.092,49.958,50.092
 		c27.545,0,49.955-22.471,49.955-50.092S212.121,127.988,184.576,127.988z M184.576,208.404c-16.648,0-30.191-13.604-30.191-30.324
-		s13.543-30.324,30.191-30.324c16.645,0,30.188,13.604,30.188,30.324S201.222,208.404,184.576,208.404z"></path>
+		s13.543-30.324,30.191-30.324c16.645,0,30.188,13.604,30.188,30.324S201.222,208.404,184.576,208.404z"/>
 </g>
 </svg></div>
     <div id="slider" translate="no">
@@ -315,18 +321,18 @@
 </div>
 </section>
 
-    <!-- -------------SECTION BOOKING------------------ -->
+    <!--SECTION BOOKING-->
     <section id="section-booking">      
       <div class="container section-padding">
-        <div class="booking">
+        <div class = "booking">
           <!-- <div class="container"> -->
             <div class="section-header booking__header">
               <h3>Забронировать квест</h3> 
-              <button class="btn btn_previous"> <span>Назад</span></button>
-              <button class="btn btn_previous"><span>Далее</span></button>
+              <button class = 'btn btn_previous'> <span>Назад</span></button>
+              <button class = 'btn btn_previous'><span>Далее</span></button>
             </div>
         
-            <div class="booking__form">     
+            <div class = "booking__form">     
               <div class="booking__day">
                   <p class="booking__date">10.05.2022</p> 
                   <p class="booking__day-name">Пятница</p>
@@ -408,22 +414,22 @@
       <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
    </div>
             </div>
-            <!-- </div> -->
+            <!--</div>-->
           </div>
-          <p class="section-padding">Максимальное количество игроков в команде - 5. Доплата за пятого игрока составляет 20 рублей.</p>
+          <p class = 'section-padding'>Максимальное количество игроков в команде - 5. Доплата за пятого игрока составляет 20 рублей.</p>
           <p>Возможно участие аниматора. Доплата за аниматора составляет 30 рублей.</p>
       </div>
 
       <div class="booking-card-wrapper">
-        <div class="booking-card">
+                <div class="booking-card">
             <div class="booking-card__header">
-                <button title="Close (Esc)" type="button" id="booking-card__close" class="booking-card__close">X</button>
+                <button title="Close (Esc)" type="button" id='booking-card__close' class="booking-card__close">X</button>
                 <h4>запись на квест</h4>
                 <h3>затащи меня в ад</h3>
-                <date>16 Мая 19:10</date>  
+                <div>16 Мая 19:10</div>
             </div>
             <div class="booking-card__cost">
-                <h4>Итого к оплате: <span>125</span> руб.</h4>
+                <h4>Итого к оплате: <span id="cost-game">---</span> руб.</h4>
             </div>       
                 <form id="data_for_booking" class="booking-card__main">
                     <input type="hidden" name="id_quest" value="4475">
@@ -446,39 +452,39 @@
                      <div class="booking-card__input-wrapper">
                        <input id="phone" name="phone" type="text" required="">
                     <span class="focus-border"><i> </i></span>
-                  </div>
-                    <label for="players">Выберите количество человек</label>
-                    <select id="players" name="players">
-                      <option selected="" class="players_option" value="не выбрано" data-tarifs="1">не выбрано</option>
-                        <option class="players_option" value="2 человека - 80" data-tarifs="1">2 человека - 80 руб.</option>
-                        <option class="players_option" value="3 человека - 110" data-tarifs="1">3 человека - 110 руб.</option>
-                        <option class="players_option" value="4 человека - 125" data-tarifs="1">4 человека - 120 руб.</option>
-                        </select>
-                    <label for="comment">Ваш комментарий</label>
-                    <div class="booking-card__input-wrapper">
-                    <textarea name="comment" id="comment"></textarea>
-                    <span class="focus-border"><i> </i></span>
-                    <div class="booking-card__checkbox">
-                    <input type="checkbox" id="booking-card__input-sale">
-                    <label for="booking-card__input-sale"> у меня есть промокод, сертификат, скидка</label>
-                    </div>
-                    <div class="booking-card__checkbox">
-                      <input type="checkbox" id="booking-card__confidence">
-                      <label for="booking-card__confidence"> я согласен с Политикой обработки персональных данных.<a href="#"> Читать...</a></label>
                       </div>
+                        <label for="players">Выберите количество человек</label>
+                        <select id="players" class='mode-select' name="players" >
+                          <option selected class="players_option" value="не выбрано" data-tarifs="1" >не выбрано</option>
+                            <option class="players_option" value="80" data-tarifs="1">2 человека - 80 руб.</option>
+                            <option class="players_option" value="110" data-tarifs="1">3 человека - 110 руб.</option>
+                            <option class="players_option" value="125" data-tarifs="1">4 человека - 125 руб.</option>
+                        </select>
+                        <label for="comment">Ваш комментарий</label>
+                        <div class="booking-card__input-wrapper">
+                      <textarea name="comment" id="comment"></textarea>
+                      <span class="focus-border"><i> </i></span>
+                      <div class="booking-card__checkbox">
+                      <input type="checkbox" id="booking-card__input-sale">
+                      <label for="booking-card__input-sale"> у меня есть промокод, сертификат, скидка</label>
+                      </div>
+                      <div class="booking-card__checkbox">
+                        <input type="checkbox" id="booking-card__confidence">
+                        <label for="booking-card__confidence"> я согласен с Политикой обработки персональных данных.<a href="#"> Читать...</a></label>
+                        </div>
                   </div>
                   <div class="booking-card__btn-wrapper">
                     <button id="booking-submit_btn" class="btn submit_btn"><span>Забронировать</span></button>
                     <button id="booking-close_btn" class="btn close_btn"><span>Отмена</span></button>
-                    </div>
-                    <div hidden="" class="mesError">Заполните все поля помеченные*</div>
-                </form>
-            </div>
-        </div>
-      
+                   </div>
+                    <!-- <div hidden class="mesError">Заполните все поля помеченные*</div> -->
+                </form>     
+    </div>  
+  </div>
     </section>
 
-      <!-- ---------------- SECTION FEEDBACK------------------ -->
+    <!-- SECTION FEEDBACK -->
+
 <section id="section-feedback">
   <div class="section-header container ">
   <div class="cd-testimonials-wrapper cd-container">
@@ -536,118 +542,125 @@
   </div>
 </div>
 </section> 
-    <!-- -------------SECTION MAP------------------ -->
-    <section id="section-map" class="section-padding">
+
+    <!--SECTION MAP-->
+    
+    <section id="section-map" class = 'section-padding'>
       <div class="container">        
           <h3 class="section-header">Как добраться</h3> 
           <p>Республика Беларусь, г. Минск, пер. Северный, 13</p> 
         <div class="map-wrap">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1175.4940693974195!2d27.53522058672545!3d53.89641476161814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfe4feaaa1d9%3A0x1b83b3a04804ce6b!2z0L_QtdGALiDQodC10LLQtdGA0L3Ri9C5IDEzLCDQnNC40L3RgdC6!5e0!3m2!1sru!2sby!4v1650286426025!5m2!1sru!2sby" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-item" data-map-id="1" style="position:relative;overflow:hidden;">
+            <a href="https://yandex.by/maps/157/minsk/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Минск</a>
+            <a href="https://yandex.by/maps/157/minsk/house/Zk4YcwRlSUQBQFtpfXR4d3hqYg==/?ll=27.535017%2C53.896496&source=wizgeo&utm_medium=mapframe&utm_source=maps&z=17.03" style="color:#eee;font-size:12px;position:absolute;top:14px;">Северный переулок, 13к5 — Яндекс Карты</a>
+            <iframe src="https://yandex.by/map-widget/v1/-/CCUJAYVCcD" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+        </div>
         </div>
       
        
     </div>
   </section>
- <!-- -------------SECTION MAP------------------ -->
+ <!--SECTION MAP-->
 
 
   </main>
 
-  <!-- ---------------- FOOTER------------------ -->
+  <!--FOOTER-->
 <footer id="section-footer">
   <div class="container">
-      <div class="footer">
-      <div class="footer-item footer-item_about">
-       <address">
+    <div class="footer">
+      <div class="footer-item footer-item_about" >      
            <ul>
              <li class="address">                
                Республика Беларусь, г.Минск, пер. Северный, 13
              </li>
-             <li>
-               <i< i="">
-               <a href="tel:+375445646693" class="btn btn_footer">+375 44 564-66-93</a>
-             </i<></li>
              <li>               
-               <a href="mailto:questblackroom@gmail.com" class="btn btn_footer">questblackroom@gmail.com</a>
+               <a href="tel:+375445646693" class='btn btn_footer'>+375 44 564-66-93</a>
+             </li>
+             <li>               
+               <a href="mailto:questblackroom@gmail.com" class='btn btn_footer'>questblackroom@gmail.com</a>
              </li>
              <li>               
                Услуги оказывает ИП Самсонова И.А., УНП 193371520   
              </li>
-           </ul>
-         
-      </address"></div>
+           </ul>        
+      </div>
       <div class="footer-item">
           <ul>
-               <li><a href="agreement.html" class="btn btn_footer">Пользовательское соглашение</a></li>
-               <li><a href="" class="btn btn_footer">Политика конфидициальности </a></li>
-               <li><a href="#section-quests" class="btn btn_footer">Наши квесты</a></li>
-               <li><a href="#section-feedback" class="btn btn_footer">Отзывы о квестах</a></li>
+               <li ><a href="./agreement.html" class='btn btn_footer'>Пользовательское соглашение</a></li>
+               <li><a href="" class='btn btn_footer'>Политика конфидициальности </a></li>
+               <li><a href="#section-quests" class='btn btn_footer'>Наши квесты</a></li>
+               <li><a href="#section-feedback" class='btn btn_footer'>Отзывы о квестах</a></li>
 
            </ul>
        </div>
       <div class="footer-item">
-          <p class="footer-item__social-header">Наши социальные сети</p>
+          <p class = 'footer-item__social-header'>Наши социальные сети</p>
           <div class="footer-item_flex">
-          <div class="footer-item__social">
-              <a href=""><svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 551.034 551.034" style="enable-background:new 0 0 551.034 551.034;" xml:space="preserve">
+          <div class = 'footer-item__social'>
+              <a href="https://instagram.com/black_room_quest?igshid=YmMyMTA2M2Y="><svg x="0px" y="0px"
+               viewBox="0 0 551.034 551.034" style="enable-background:new 0 0 551.034 551.034;" xml:space="preserve">
           <g id="XMLID_13_">
                <path id="XMLID_17_" fill="#fff" d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722
                   c0,90.516,73.64,164.156,164.156,164.156h222.722c90.516,0,164.156-73.64,164.156-164.156V164.156
                   C551.033,73.64,477.393,0,386.878,0z M495.6,386.878c0,60.045-48.677,108.722-108.722,108.722H164.156
                   c-60.045,0-108.722-48.677-108.722-108.722V164.156c0-60.046,48.677-108.722,108.722-108.722h222.722
-                  c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z"></path>
+                  c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z"/>
                <path id="XMLID_81_" fill="#fff" d="M275.517,133C196.933,133,133,196.933,133,275.516
                   s63.933,142.517,142.517,142.517S418.034,354.1,418.034,275.516S354.101,133,275.517,133z M275.517,362.6
                   c-48.095,0-87.083-38.988-87.083-87.083s38.989-87.083,87.083-87.083c48.095,0,87.083,38.988,87.083,87.083
-                  C362.6,323.611,323.611,362.6,275.517,362.6z"></path>
-               <circle id="XMLID_83_" fill="#fff" cx="418.306" cy="134.072" r="34.149"></circle>
+                  C362.6,323.611,323.611,362.6,275.517,362.6z"/>
+               <circle id="XMLID_83_" fill="#fff" cx="418.306" cy="134.072" r="34.149"/>
           </g>       
           </svg></a>
           </div>  
-          <div class="footer-item__social">
-           <a href="">
-               <svg viewBox="4 4 42 42" width="50" height="50"><path fill="#fff" d="M41 4H9C6.243 4 4 6.243 4 9v32c0 2.757 2.243 5 5 5h32c2.757 0 5-2.243 5-5V9c0-2.757-2.243-5-5-5m-3.994 18.323a7.482 7.482 0 0 1-.69.035 7.492 7.492 0 0 1-6.269-3.388v11.537a8.527 8.527 0 1 1-8.527-8.527c.178 0 .352.016.527.027v4.202c-.175-.021-.347-.053-.527-.053a4.351 4.351 0 1 0 0 8.704c2.404 0 4.527-1.894 4.527-4.298l.042-19.594h4.02a7.488 7.488 0 0 0 6.901 6.685v4.67"></path></svg>
+          <div class = 'footer-item__social'>
+           <a href="https://vm.tiktok.com/ZMLTGwRoJ/">
+               <svg viewBox="4 4 42 42" width="50" height="50"><path fill="#fff" d="M41 4H9C6.243 4 4 6.243 4 9v32c0 2.757 2.243 5 5 5h32c2.757 0 5-2.243 5-5V9c0-2.757-2.243-5-5-5m-3.994 18.323a7.482 7.482 0 0 1-.69.035 7.492 7.492 0 0 1-6.269-3.388v11.537a8.527 8.527 0 1 1-8.527-8.527c.178 0 .352.016.527.027v4.202c-.175-.021-.347-.053-.527-.053a4.351 4.351 0 1 0 0 8.704c2.404 0 4.527-1.894 4.527-4.298l.042-19.594h4.02a7.488 7.488 0 0 0 6.901 6.685v4.67"/></svg>
            </a>
           </div>
       
-          <div class="footer-item__social">
-           <a href="">
-               <svg width="48px" height="48px" viewBox="0 0 24 24" role="img"><title>VK icon</title><path fill="#fff" d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"></path></svg>
+          <div class = 'footer-item__social'>
+           <a href="https://vk.com/blackroom_minsk">
+               <svg width="48px" height="48px" viewBox="0 0 24 24" role="img"><title>VK icon</title><path fill="#fff" d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
            </a>
           </div>
         </div>
-          <p class="footer-item__social-header">Также вы можете найти нас здесь</p>
+          <p class = 'footer-item__social-header'>Также вы можете найти нас здесь</p>
           <div class="footer-item_flex">
-          <div class="footer-item__social">
+          <div class = 'footer-item__social'>
               <a href="https://mir-kvestov.by/quests/black-room-zatashhi-menja-v-ad">
-                <img src="https://mir-kvestov.by/widgets/6798/img" width="210" alt="Отзывы на Квест в реальности Затащи меня в ад (Black Room)" title="Отзывы на Квест в реальности Затащи меня в ад (Black Room)">
+                <img src="./Image/mk.png" width="210" alt="Отзывы на Квест в реальности Затащи меня в ад (Black Room)" title="Отзывы на Квест в реальности Затащи меня в ад (Black Room)">
              </a>
           </div>
 
-          <div class="footer-item__social">
+          <div class = 'footer-item__social'>
             <a href="https://mir-kvestov.by/quests/black-room-zapertye-dushi">
-                <img src="https://mir-kvestov.by/widgets/6109/img" width="210" alt="Отзывы на Квест в реальности Запертые души (Black Room)" title="Отзывы на Квест в реальности Запертые души (Black Room)">
+                <img src="./Image/mk2.png" width="210" alt="Отзывы на Квест в реальности Запертые души (Black Room)" title="Отзывы на Квест в реальности Запертые души (Black Room)">
             </a>
           </div>
 
-        <div class="footer-item__social">
+        <div class = 'footer-item__social'>
           <a href="https://extrareality.by/organizator/587">
-              <img alt="Рейтинг квестов" src="https://extrareality.by/assets/images/button-we-on-xr.jpg">
+              <img alt="Рейтинг квестов" src="./Image/er.jpg">
           </a>
         </div>
   </div>
+      </div>
+  </div>
 </div>
-</div>
-</div></footer>
-  <script src="menu.0c91648c.js"></script> 
-  <script src="header.4485232e.js"></script>
+</footer>
+
+
+  <script src="./js/menu.js"></script> 
+  <script src="./js/header.js"></script>
   <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-  <script src="slider_gallery.9e96fa17.js"></script>
-  <script src="booking.6c777bf2.js"></script>
-  <script src="jquery-2.1.1.c2c560f9.js"></script>
-  <script src="masonry.pkgd.min.fad0c8c8.js"></script>
-  <script src="jquery.flexslider-min.ab123c9f.js"></script>
-  <script src="main.c7a34091.js"></script> 
+  <script src="./js/slider_gallery.js"></script>
+  <script src="./js/booking.js"></script>
+  <script src="./Slider_feedback/js/jquery-2.1.1.js"></script>
+  <script src="./Slider_feedback/js/masonry.pkgd.min.js"></script>
+  <script src="./Slider_feedback/js/jquery.flexslider-min.js"></script>
+  <script src="./Slider_feedback/js/main.js"></script> 
 </body>
 </html>
