@@ -1,15 +1,15 @@
 // sorry for the spaghetti code and redundant variables, i wasn't exactly a good coder back then
 
 const cols = 3;
-const main = document.getElementById('slider');
+const main = document.getElementById("slider");
 let parts = [];
 
 let images = [
-  "../Image/banner.jpg",
-  "../Image/aboutperformance.jpe",
-  "../Image/banner_zapertye_dushi.jpg",
-  "../Image/banner1.jpg",
-  "../Image/banner-ad.jpg"
+  "./Image/banner.jpg",
+  "./Image/aboutperformance.jpe",
+  "./Image/banner_zapertye_dushi.jpg",
+  "./Image/banner1.jpg",
+  "./Image/banner-ad.jpg",
 ];
 
 let current = 0;
@@ -20,28 +20,26 @@ for (let i in images) {
 }
 
 for (let col = 0; col < cols; col++) {
-  let part = document.createElement('div');
-  part.className = 'part';
-  let el = document.createElement('div');
+  let part = document.createElement("div");
+  part.className = "part";
+  let el = document.createElement("div");
   el.className = "section";
-  let img = document.createElement('img');
+  let img = document.createElement("img");
   img.src = images[current];
-  img.style.left = `${-100*col}%`;
+  img.style.left = `${-100 * col}%`;
   el.appendChild(img);
-   part.appendChild(el);
+  part.appendChild(el);
   main.appendChild(part);
   parts.push(part);
 }
 
 let animOptions = {
   duration: 2.3,
-  ease: Power4.easeInOut
+  ease: Power4.easeInOut,
 };
 
 function go(dir) {
   if (!playing) {
-   
-
     playing = true;
     if (current + dir < 0) current = images.length - 1;
     else if (current + dir >= images.length) current = 0;
@@ -49,29 +47,31 @@ function go(dir) {
 
     function up(part, next) {
       part.appendChild(next);
-      gsap.to(part, {...animOptions, y: -part.clientHeight}).then(function () {
-        part.children[0].remove();
-        gsap.to(part, {duration: 0, y: 0});
-      })
+      gsap
+        .to(part, { ...animOptions, y: -part.clientHeight })
+        .then(function () {
+          part.children[0].remove();
+          gsap.to(part, { duration: 0, y: 0 });
+        });
     }
 
     function down(part, next) {
       part.prepend(next);
-      gsap.to(part, {duration: 0, y: -part.clientHeight});
-      gsap.to(part, {...animOptions, y: 0}).then(function () {
+      gsap.to(part, { duration: 0, y: -part.clientHeight });
+      gsap.to(part, { ...animOptions, y: 0 }).then(function () {
         part.children[1].remove();
         playing = false;
-      })
+      });
     }
 
     for (let p in parts) {
       let part = parts[p];
-      let next = document.createElement('div');
-      next.className = 'section';
-      let img = document.createElement('img');
+      let next = document.createElement("div");
+      next.className = "section";
+      let img = document.createElement("img");
       img.src = images[current];
-      img.style.left = `${-100*p}%`;
-     
+      img.style.left = `${-100 * p}%`;
+
       next.appendChild(img);
 
       if ((p - Math.max(0, dir)) % 2) {
@@ -80,23 +80,19 @@ function go(dir) {
         up(part, next);
       }
     }
-
-      
   }
 }
 
-window.addEventListener('keydown', function(e) {
-  if (['ArrowDown', 'ArrowRight'].includes(e.key)) {
+window.addEventListener("keydown", function (e) {
+  if (["ArrowDown", "ArrowRight"].includes(e.key)) {
     go(1);
-  }
-
-  else if (['ArrowUp', 'ArrowLeft'].includes(e.key)) {
+  } else if (["ArrowUp", "ArrowLeft"].includes(e.key)) {
     go(-1);
   }
 });
 
 function lerp(start, end, amount) {
-  return (1-amount)*start+amount*end
+  return (1 - amount) * start + amount * end;
 }
 
 // const cursor = document.createElement('div');
@@ -125,7 +121,7 @@ function lerp(start, end, amount) {
 // cursorF.style.setProperty('width', sizeF+'px');
 // cursorF.style.setProperty('height', sizeF+'px');
 
-window.addEventListener('mousemove', function(e) {
+window.addEventListener("mousemove", function (e) {
   pageX = e.clientX;
   pageY = e.clientY;
   // cursor.style.left = e.clientX-size/2+'px';
@@ -178,14 +174,13 @@ window.addEventListener('mousemove', function(e) {
 let scrollTimeout;
 function wheel(e) {
   clearTimeout(scrollTimeout);
-  setTimeout(function() {
+  setTimeout(function () {
     if (e.deltaY < -40) {
       go(-1);
-    }
-    else if (e.deltaY >= 40) {
+    } else if (e.deltaY >= 40) {
       go(1);
     }
-  })
+  });
 }
-window.addEventListener('mousewheel', wheel, false);
-window.addEventListener('wheel', wheel, false);
+window.addEventListener("mousewheel", wheel, false);
+window.addEventListener("wheel", wheel, false);
