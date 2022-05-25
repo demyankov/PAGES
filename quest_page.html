@@ -640,7 +640,7 @@ $(window).load(function() {
                     </div>                   
                     <label for="phone">Введите ваш телефон<span>*</span> </label>
                      <div class="booking-card__input-wrapper">
-                       <input id="phone" name="phone" type="text" required="">
+                       <input id="phone" name="phone" type="text">
                     <span class="focus-border"><i> </i></span>
                       </div>
                         <label for="players">Выберите количество человек</label>
@@ -660,12 +660,13 @@ $(window).load(function() {
                       </div>
                       <div class="booking-card__checkbox">
                         <input type="checkbox" id="booking-card__confidence">
-                        <label for="booking-card__confidence"> я согласен с Политикой обработки персональных данных.<a href="#"> Читать...</a></label>
+                        <label for="booking-card__confidence"> я согласен с Политикой обработки персональных данных.
+                          <span>*</span><a href="#"> Читать...</a></label>
                         </div>
                   </div>
                   <div class="booking-card__btn-wrapper">
-                    <button id="booking-submit_btn" class="btn submit_btn"><span>Забронировать</span></button>
-                    <button id="booking-close_btn" class="btn close_btn"><span>Отмена</span></button>
+                    <button disabled type="submit" id="booking-submit_btn" class="btn submit_btn"><span>Забронировать</span></button>
+                    <button type="reset" id="booking-close_btn" class="btn close_btn"><span>Отмена</span></button>
                    </div>
                     <!-- <div hidden class="mesError">Заполните все поля помеченные*</div> -->
                 </form>     

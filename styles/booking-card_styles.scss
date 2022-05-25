@@ -44,7 +44,6 @@
         transform: rotate(360deg);
     }
 
-
     &__header {
         padding: $font-size-button;  
         background-color: $background-color-yellow;
@@ -242,26 +241,58 @@
          
     }
 
+        
+
         &__btn-wrapper {
                 display: flex;
                 justify-content:space-between;
                 gap: $padding-menu;
                 
+                .submit_btn {                    
+                    &::after, &::before{
+                        width: 0;
+                        height: 0;
+                    }                                      
+                }
 
-                .submit_btn, .close_btn {
+                .submit_btn, .submit_btn-active {
+                    background-color: transparent; 
+                    border-color: rgb(105, 103, 103); 
+                    color: rgb(105, 103, 103); 
+                    flex:1; 
+                }
+
+                .submit_btn-active {
+                    border-color: #fff; 
+                    color: #fff; 
+                }
+                
+                .submit_btn span {
+                    color: rgb(105, 103, 103); 
+
+                    &::after, &::before{
+                        width: 0;
+                        height: 0;
+                    }
+                }
+
+                .close_btn {
                     background-color: transparent; 
                     border-color: #fff;  
                     flex:1;               
                 }
 
-                .btn:hover, .btn:focus, .btn:active {
-                border-color: transparent;
-            }
-                .submit_btn:hover span, .close_btn:hover span, 
-                .submit_btn:focus span, .close_btn:focus span,
-                .submit_btn:active span, .close_btn:active span
+                .submit_btn-active:hover, .close_btn:hover, 
+                .submit_btn-active:focus, .close_btn:focus,
+                .submit_btn-active:active, .close_btn:active {
+                    border-color: transparent;
+                }
+
+                .submit_btn-active:hover span, .close_btn:hover span, 
+                .submit_btn-active:focus span, .close_btn:focus span,
+                .submit_btn-active:active span, .close_btn:active span
                 {       
-                           color: $font-color-yellow;
+                    color: $font-color-yellow;
                            
                 }
 
