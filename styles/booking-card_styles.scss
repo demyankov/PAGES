@@ -9,8 +9,7 @@
     top: -350%;
     left: 0;
     display: flex;
-    justify-content: center;
-    // align-items: center;
+    justify-content: center;  
     padding: $font-size-button; 
     background-color: rgba(54, 54, 52, 0.95);
     transition: all 0.3s ease-in-out;
@@ -49,7 +48,7 @@
         padding: $font-size-button;  
         background-color: $background-color-yellow;
 
-        h3, h4 {
+        h3, h4,p {
             margin: clamp(0.6rem,1vw,0.8rem) 0;
             text-transform: uppercase;
             color: $font-color-dark-h;

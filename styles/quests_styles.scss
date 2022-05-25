@@ -166,19 +166,11 @@ h2 {
       display: block;
       position: static;
       margin: $font-size-h3;
-      font-size: $font-size-h1; 
-      color: rgba(240, 0, 20,1);        
+      font-size: $font-size-h1;       
       text-align: center; 
       text-transform: uppercase;  
       line-height: 1;
-      mix-blend-mode: normal;
-      text-shadow:
-        0 0 1px #f00,
-        0 0 2px rgb(247, 63, 63),
-        0 0 5px rgb(240, 128, 128),
-        0 0 11px rgb(240, 140, 140),
-        0 0 20px rgb(241, 188, 188),
-        0 0 30px rgb(247, 247, 247),   
+      mix-blend-mode: normal;    
     } 
     
 h2, h3 {

@@ -1,3 +1,8 @@
+:root {
+  --gap: 12px;
+}
+
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
@@ -8,7 +13,7 @@ body {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   background: #000;
 }
-
+/* 
 .slider {
   overflow: hidden;
   position: relative;
@@ -410,4 +415,314 @@ body {
 .icon-link--twitter {
   left: auto;
   right: 5px;
+} */
+
+
+/* ====================================================================================================================
+ * FONT-FACE
+ * ====================================================================================================================*/
+ /* @font-face {
+  font-family: 'flexslider-icon';
+  src: url('http://bootstraptema.ru/snippets/slider/2016/flexslider/flexslider-icon.eot');
+  src: url('http://bootstraptema.ru/snippets/slider/2016/flexslider/flexslider-icon.eot?#iefix') format('embedded-opentype'), url('http://bootstraptema.ru/snippets/slider/2016/flexslider/flexslider-icon.woff') format('woff'), url('http://bootstraptema.ru/snippets/slider/2016/flexslider/flexslider-icon.ttf') format('truetype'), url('http://bootstraptema.ru/snippets/slider/2016/flexslider/flexslider-icon.svg#flexslider-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} */
+/* ====================================================================================================================
+ * RESETS
+ * ====================================================================================================================*/
+/* .flex-container a:hover,
+.flex-slider a:hover {
+  outline: none;
+} */
+.slides,
+.slides > li,
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+/* .flex-pauseplay span {
+  text-transform: capitalize;
+} */
+/* ====================================================================================================================
+ * BASE STYLES
+ * ====================================================================================================================*/
+/* .flexslider {
+  margin: 0;
+  padding: 0;
+} */
+.flexslider .slides > li {
+  display: none;
+}
+.flexslider .slides img {
+  width: 100%;
+  display: block;
+}
+.flexslider .slides:after {
+  content: "\0020";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+html[xmlns] .flexslider .slides {
+  display: block;
+}
+* html .flexslider .slides {
+  height: 1%;
+}
+.no-js .flexslider .slides > li:first-child {
+  display: block;
+}
+/* ====================================================================================================================
+ * DEFAULT THEME
+ * ====================================================================================================================*/
+.flexslider {  
+  position: relative;
+  zoom: 1;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.flexslider .slides {
+  zoom: 1;
+}
+
+.flexslider .slides li {
+  display: block;
+  height: clamp(30rem,50vW,44rem);
+  width: 100%;
+}
+
+.flexslider .slides img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;  
+}
+
+.flex-viewport {
+  max-height: 2000px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.loading .flex-viewport {
+  max-height: 300px;
+}
+
+/* .carousel li {
+  margin-right: 5px;
+} */
+
+/* .flex-direction-nav {
+  *height: 0;
+} */
+
+.flex-direction-nav a {
+  text-decoration: none;
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: -20px 0 0;
+  position: absolute;
+  z-index: 10;
+  overflow: hidden;
+  opacity: 0.7;
+  cursor: pointer;
+  /* color: rgba(0, 0, 0, 0.8); */
+  /* text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out; */
+  transition: all 0.3s ease-in-out;
+}
+
+.flexslider .flex-direction-nav .flex-prev a::before,
+.flexslider .flex-direction-nav .flex-next a::before {
+  opacity: 0.7;
+  display: inline-block;
+  content: ' ';
+  /* background-color: rgba(252, 252, 252, 1); */
+
+}
+
+.flex-direction-nav a.flex-next:before {
+  content: ' ';
+}
+
+.flexslider:hover .flex-direction-nav .flex-prev {
+  opacity: 1;
+  /* left: 10px; */
+}
+
+.flexslider:hover .flex-direction-nav .flex-prev:hover {
+  opacity: 1; 
+}
+
+.flexslider:hover .flex-direction-nav .flex-next {
+  opacity: 1;
+
+}
+
+.flexslider:hover .flex-direction-nav .flex-next:hover {
+  opacity: 1;
+} 
+
+.flex-direction-nav .flex-disabled {
+  /* opacity: 0!important; */
+  /* filter: alpha(opacity=0); */
+  cursor: default;
+  z-index: -1;
+}
+
+.flex-pauseplay a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  color: #000;
+}
+
+.flex-pauseplay a:before {
+  font-family: "flexslider-icon";
+  font-size: 20px;
+  display: inline-block;
+  content: '\f004';
+}
+
+.flex-pauseplay a:hover {
+  opacity: 1;
+}
+
+.flex-pauseplay a.flex-play:before {
+  content: '\f003';
+}
+
+.btn-all-container{
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1rem, 2.3vw, 2rem);
+}
+
+#btn-all-photo {
+background-color: transparent;
+color: transparent;
+}
+
+.flex-control-nav {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  row-gap: clamp(0.3rem, 1vw, 0.7rem);
+}
+
+
+.flex-control-nav-all {
+  flex-wrap:wrap;
+  justify-content: center;
+}
+
+
+.flex-control-nav li {
+  /* margin: 0 6px; */
+  display: inline-block;
+  zoom: 1;
+  padding: 0 clamp(0.3rem, 1vw, 0.7rem);
+}
+
+.flex-control-paging li a {
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: #666;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-indent: -9999px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.flex-control-paging li a:hover {
+  background: #333;
+  background: rgba(0, 0, 0, 0.7);
+}
+.flex-control-paging li a.flex-active {
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+.flex-control-thumbs {
+  margin: clamp(1rem,2.4vw,2rem) 0 0;
+  position: static;
+  overflow: hidden;
+}
+
+.flex-control-thumbs li {
+  position: relative;
+  min-width: 25%;
+  width: 25%; 
+  float: left;
+  margin: 0;
+}
+.flex-control-thumbs img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* opacity: .7; */
+  cursor: pointer;
+  border: 1px solid #fff;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.flex-control-thumbs img:hover {
+  opacity: 1;
+}
+.flex-control-thumbs .flex-active {
+  opacity: 1;
+  cursor: default;
+  border: 1px solid #ffee00;
+}
+/* ====================================================================================================================
+ * RESPONSIVE
+ * ====================================================================================================================*/
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev {
+    opacity: 1;
+    left: 10px;
+  }
+  .flex-direction-nav .flex-next {
+    opacity: 1;
+    right: 10px;
+  }
+}
+
+
+
+

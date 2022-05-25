@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Creepster&family=Kaushan+Script&family=Metal+Mania&family=Montserrat:wght@700&family=Open+Sans:wght@400;500;700&family=Oswald:wght@400;500;700&family=Play:wght@400;700&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500&family=Rubik+Beastly&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Creepster&family=Kaushan+Script&family=Metal+Mania&family=Montserrat:wght@700&family=Open+Sans:wght@400;500;700&family=Oswald:wght@400;500;700&family=Play:wght@400;700&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500&family=Rubik+Beastly&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./Slider_feedback/css/slider_feedback.css">
     <title>BLACK ROOM</title>
@@ -30,7 +30,7 @@
                 <a href="#section-question-and-map">Как проехать</a>
             </div>
             <div class="phone">
-                <a href="tel:+375335646693"> +375 (44) 564-66-93</a>
+                <a href="tel:+375445646693"> +375 (44) 564-66-93</a>
             </div>
             <div class="burger-menu" id="button-burger">
                 <a class="burger-menu_icon">
@@ -53,7 +53,7 @@
             <div class="margin-top">
             <h2>Black Room</h2>
             <div class="banner_btn-position banner_btn-margin">
-             <a class="btn banner_btn-style" target="_blank" href="#section-quests"><span>ПОСМОТРЕТЬ КВЕСТЫ</span></a>
+             <a class="btn banner_btn-style" href="#section-quests"><span>ПОСМОТРЕТЬ КВЕСТЫ</span></a>
             </div>
         </div>
         <div class="light x1"></div>
@@ -439,7 +439,7 @@
                         <input class="feedback__user-phone" type="number" placeholder="Номер Вашего телефона (375 XX XXX-XX-XX)">
                         <input class="feedback__email" type="email" placeholder="Ваш E-mail">
                         <input class="feedback__quest-name" type="text" placeholder="Какой квест посещали">
-                        <input class="feedback__date" type="date" placeholder="Дата посещения квеста">
+                        <input class="feedback__date" type="text" placeholder="Дата посещения квеста" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                         <textarea class="feedback__text" placeholder="Введите текст сообщения"></textarea>
                         <button class="btn feedback__submit" type="submit"><span>Отправить</span> </button>
                     </form>

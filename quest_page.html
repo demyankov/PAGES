@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&family=Oswald:wght@300;400;600;700&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500&family=Rubik+Beastly&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles/normalize.css">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&family=Oswald:wght@300;400;600;700&family=Ralew:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500&family=Rubik+Beastly&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles/normalize.css"> -->
   <link rel="stylesheet" href="./styles/quests_styles.css">
   <link rel="stylesheet" href="./Slider_feedback/css/slider_feedback.css">
+  <link rel="stylesheet" href="./styles/slider.css">
+  
   <title>BLACK ROOM</title>
    
   
@@ -33,7 +35,7 @@
             <a href="">Как проехать</a>
         </div>
         <div class="phone">
-            <a href="tel:+375335646693"> +375 (44) 564-66-93</a>
+            <a href="tel:+375445646693"> +375 (44) 564-66-93</a>
         </div>
         <div class="burger-menu" id="button-burger">
           <a class="burger-menu_icon">
@@ -312,13 +314,76 @@
 		s13.543-30.324,30.191-30.324c16.645,0,30.188,13.604,30.188,30.324S201.222,208.404,184.576,208.404z"/>
 </g>
 </svg></div>
-    <div id="slider" translate="no">
+    <!-- <div id="slider" translate="no">
                 <div class="buttons">
           <button class="next" onclick="go(-1)"></button>
           <button class="prev" onclick="go(1)"></button>
-      </div>
+      </div> -->
+
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
+<!-- <link rel="stylesheet" href="https://bootstraptema.ru/snippets/slider/2016/flexslider/flexslider.css"/> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://bootstraptema.ru/snippets/slider/2016/flexslider/jquery.flexslider.js"></script>
+<script type="text/javascript" src="https://bootstraptema.ru/snippets/slider/2016/flexslider/modernizr.js"></script>
+<!-- <script type="text/javascript" src="https://bootstraptema.ru/snippets/slider/2016/flexslider/jquery.mousewheel.js"></script> -->
+
+<script>
+$(window).load(function() {
+ $('.flexslider').flexslider({
+ animation: "slide",
+ controlNav: "thumbnails"
+ });
+});
+</script>
+
+<div class="container">
+ <!-- <div class="row">
+ <div class="col-md-12"> -->
+
+ <div class="flexslider" >
+ <ul class="slides">
+ <li data-thumb="./Image/banner-ad.jpg">
+ <img src="./Image/banner-ad.jpg" />
+ </li>
+ <li data-thumb="./Image/banner.jpg">
+ <img src="./Image/banner.jpg" />
+ </li>
+ <li data-thumb="./Image/banner1.jpg">
+ <img src="./Image/banner1.jpg" />
+ </li>
+   <li data-thumb="./Image/banner_zapertye_dushi.jpg">
+ <img src="./Image/banner_zapertye_dushi.jpg" />
+ </li>
+   <li data-thumb="./Image/er.jpg">
+ <img src="./Image/er.jpg" />
+ </li>
+   <li data-thumb="./Image/banner_zapertye_dushi.jpg">
+ <img src="./Image/banner_zapertye_dushi.jpg" />
+ </li>
+   <li data-thumb="./Image/banner1.jpg">
+ <img src="./Image/banner1.jpg" />
+ </li>
+ <li data-thumb="./Image/banner.jpg">
+ <img src="./Image/banner.jpg" />
+ </li>
+</li>
+<li data-thumb="./Image/banner1.jpg">
+<img src="./Image/banner1.jpg" />
+</li>
+<li data-thumb="./Image/banner.jpg">
+<img src="./Image/banner.jpg" />
+</li>
+ </ul>
   </div>
+  <div class="btn-all-container">
+  <button id = 'btn-all-photo' class="btn"><span>Посмотреть фото</span></button> 
 </div>
+</div>
+</div>
+</div>
+
+
+
 </section>
 
     <!--SECTION BOOKING-->
@@ -328,11 +393,11 @@
           <!-- <div class="container"> -->
             <div class="section-header booking__header">
               <h3>Забронировать квест</h3> 
-              <button class = 'btn btn_previous'> <span>Назад</span></button>
-              <button class = 'btn btn_previous'><span>Далее</span></button>
+              <button id='btn_previous' class = 'btn'> <span>Назад</span></button>
+              <button id='btn_next' class = 'btn'><span>Далее</span></button>
             </div>
         
-            <div class = "booking__form">     
+            <div id = "booking-form" class = "booking__form">     
               <div class="booking__day">
                   <p class="booking__date">10.05.2022</p> 
                   <p class="booking__day-name">Пятница</p>
@@ -413,6 +478,131 @@
       <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
       <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
    </div>
+
+
+   <div class="booking__day">
+    <p class="booking__date">17.05.2022</p> 
+    <p class="booking__day-name">Черверг</p>
+</div>
+<div class="booking__times">               
+    <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+    <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+    <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+    <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+ </div>
+
+ <div class="booking__day">
+  <p class="booking__date">18.05.2022</p> 
+  <p class="booking__day-name">Черверг</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+
+<div class="booking__day">
+  <p class="booking__date">19.05.2022</p> 
+  <p class="booking__day-name">Черверг</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+<div class="booking__day">
+<p class="booking__date">20.05.2022</p> 
+<p class="booking__day-name">Среда</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+<div class="booking__day">
+<p class="booking__date">21.05.2022</p> 
+<p class="booking__day-name">Среда</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+<div class="booking__day">
+<p class="booking__date">22.05.2022</p> 
+<p class="booking__day-name">Среда</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+<div class="booking__day">
+<p class="booking__date">23.05.2022</p> 
+<p class="booking__day-name">Среда</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+<div class="booking__day">
+<p class="booking__date">24.05.2022</p> 
+<p class="booking__day-name">Среда</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+<div class="booking__day">
+<p class="booking__date">25.05.2022</p> 
+<p class="booking__day-name">Среда</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+<div class="booking__day">
+<p class="booking__date">26.05.2022</p> 
+<p class="booking__day-name">Среда</p>
+</div>
+<div class="booking__times">               
+  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+</div>
+<div class="booking__day">
+  <p class="booking__date">27.05.2022</p> 
+  <p class="booking__day-name">Среда</p>
+  </div>
+  <div class="booking__times">               
+    <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+    <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+    <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+    <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+  </div>
+  <div class="booking__day">
+    <p class="booking__date">28.05.2022</p> 
+    <p class="booking__day-name">Среда</p>
+    </div>
+    <div class="booking__times">               
+      <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
+      <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
+      <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
+      <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+    </div>
+    
             </div>
             <!--</div>-->
           </div>
@@ -426,7 +616,7 @@
                 <button title="Close (Esc)" type="button" id='booking-card__close' class="booking-card__close">X</button>
                 <h4>запись на квест</h4>
                 <h3>затащи меня в ад</h3>
-                <div>16 Мая 19:10</div>
+                <div><p>16 Мая 19:10</p> </div>
             </div>
             <div class="booking-card__cost">
                 <h4>Итого к оплате: <span id="cost-game">---</span> руб.</h4>
@@ -656,11 +846,12 @@
   <script src="./js/header.js"></script>
   <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-  <script src="./js/slider_gallery.js"></script>
+  <!-- <script src="./js/slider_gallery.js"></script> -->
   <script src="./js/booking.js"></script>
   <script src="./Slider_feedback/js/jquery-2.1.1.js"></script>
   <script src="./Slider_feedback/js/masonry.pkgd.min.js"></script>
   <script src="./Slider_feedback/js/jquery.flexslider-min.js"></script>
   <script src="./Slider_feedback/js/main.js"></script> 
+  <script src="./js/slider-gallery.js"></script>
 </body>
 </html>
