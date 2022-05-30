@@ -403,10 +403,10 @@ $(window).load(function() {
                   <p class="booking__day-name">Пятница</p>
               </div>
               <div class="booking__times">               
-                  <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
-                  <button class="booking__times-item booked"> 19-50 <span>от 80 руб.</span></button>
-                  <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
-                  <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+                  <button class="booking__times-item"  data-time = "10 мая 2022 18-10"> 18-10 <span>от 80 руб.</span></button>
+                  <button class="booking__times-item booked"  data-time = "10 мая 2022 19-50"> 19-50 <span>от 80 руб.</span></button>
+                  <button class="booking__times-item"  data-time = "10 мая 2022 21-30"> 21-30 <span>от 80 руб.</span></button>
+                  <button class="booking__times-item"  data-time = "10 мая 2022 23-10"> 23-10 <span>от 160 руб.</span></button>
                </div>
 
                <div class="booking__day">
@@ -415,13 +415,13 @@ $(window).load(function() {
             </div>
             <div class="booking__times">
               <button class="booking__times-item"> 11-30 <span>от 80 руб.</span></button>
-              <button class="booking__times-item"> 13-10 <span>от 80 руб.</span></button>
-              <button class="booking__times-item booked"> 14-50 <span>от 80 руб.</span></button>
-              <button class="booking__times-item"> 16-30 <span>от 80 руб.</span></button>
-                <button class="booking__times-item"> 18-10 <span>от 80 руб.</span></button>
-                <button class="booking__times-item"> 19-50 <span>от 80 руб.</span></button>
-                <button class="booking__times-item"> 21-30 <span>от 80 руб.</span></button>
-                <button class="booking__times-item"> 23-10 <span>от 160 руб.</span></button>
+              <button class="booking__times-item" data-time = "11 мая 2022 13-10"> 13-10 <span>от 80 руб.</span></button>
+              <button class="booking__times-item booked" data-time = "11 мая 2022 14-50"> 14-50 <span>от 80 руб.</span></button>
+              <button class="booking__times-item" data-time = "11 мая 2022 16-30"> 16-30 <span>от 80 руб.</span></button>
+              <button class="booking__times-item"  data-time = "11 мая 2022 18-10"> 18-10 <span>от 80 руб.</span></button>
+              <button class="booking__times-item booked"  data-time = "11 мая 2022 19-50"> 19-50 <span>от 80 руб.</span></button>
+              <button class="booking__times-item"  data-time = "11 мая 2022 21-30"> 21-30 <span>от 80 руб.</span></button>
+              <button class="booking__times-item"  data-time = "11 мая 2022 23-10"> 23-10 <span>от 160 руб.</span></button>
              </div>
 
              <div class="booking__day">
@@ -616,7 +616,7 @@ $(window).load(function() {
                 <button title="Close (Esc)" type="button" id='booking-card__close' class="booking-card__close">X</button>
                 <h4>запись на квест</h4>
                 <h3>затащи меня в ад</h3>
-                <div><p>16 Мая 19:10</p> </div>
+                <div><p id="game-date">16 Мая 19:10</p> </div>
             </div>
             <div class="booking-card__cost">
                 <h4>Итого к оплате: <span id="cost-game">---</span> руб.</h4>
@@ -661,7 +661,7 @@ $(window).load(function() {
                       <div class="booking-card__checkbox">
                         <input type="checkbox" id="booking-card__confidence">
                         <label for="booking-card__confidence"> я согласен с Политикой обработки персональных данных.
-                          <span>*</span><a href="#"> Читать...</a></label>
+                          <span>*</span><a href="./policy.html"> Читать...</a></label>
                         </div>
                   </div>
                   <div class="booking-card__btn-wrapper">
@@ -779,7 +779,7 @@ $(window).load(function() {
       <div class="footer-item">
           <ul>
                <li ><a href="./agreement.html" class='btn btn_footer'>Пользовательское соглашение</a></li>
-               <li><a href="" class='btn btn_footer'>Политика конфидициальности </a></li>
+               <li><a href="./policy.html" class='btn btn_footer'>Политика конфидициальности </a></li>
                <li><a href="./index.html#section-quests" class='btn btn_footer'>Наши квесты</a></li>
                <li><a href="#section-feedback" class='btn btn_footer'>Отзывы о квестах</a></li>
 

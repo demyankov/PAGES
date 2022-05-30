@@ -1,15 +1,60 @@
-// РАБОТА С ФОРМОЙ БРОНИРОВАНИЯ
-
 let bookingWrapper = document.querySelector(".booking");
 let bookingCardwrapper = document.querySelector(".booking-card-wrapper");
 let bookingCloseCard = document.querySelector("#booking-card__close");
 let bookingCancelCard = document.querySelector("#booking-close_btn");
+let btnPrevious = document.querySelector("#btn_previous");
+let btnNext = document.querySelector("#btn_next");
+let bookingForm = document.querySelector("#booking-form");
+let bookingDay = bookingForm.querySelectorAll(".booking__day");
+let bookingTimes = bookingForm.querySelectorAll(".booking__times");
+let countBookingDay = bookingDay.length;
+let lastOpenBookingDay = countBookingDay;
+let firstOpenBookingDay = 0;
+let btnBooked = document.querySelector("#booking-submit_btn");
+let inputConfidece = document.querySelector("#booking-card__confidence");
+let inputPhone = document.querySelector("#phone");
 
+
+// присваиваем data-id 
+function writeDataId (){
+  bookingDay.forEach((el, i)=>{
+    el.setAttribute('data-id',i+1)
+  })
+  
+  bookingTimes.forEach((el, i)=>{
+    el.setAttribute('data-id',i+1)
+  })  
+  }
+  
+  writeDataId ()
+
+  function createOption(select, value) {
+    let option = document.createElement('option')
+    option.innerText = value
+    select.append(option)
+  }
+
+// РАБОТА С ФОРМОЙ БРОНИРОВАНИЯ
 bookingWrapper.addEventListener("click", (e) => {
   let el = e.target.closest(".booking__times-item");
+  // открытие формы бронирования
   if (el && !el.className.includes("booked")) {
     bookingCardwrapper.classList.toggle("booking-active");
     html.style.overflow = "hidden";
+
+    // заполнене формы бронирования
+    let gameDate = bookingCardwrapper.querySelector('#game-date')
+    
+    //запонение даты и времени игры в карточке бронирования
+    let dateValue = el.getAttribute('data-time')
+    dateValue ? gameDate.innerText = dateValue : gameDate.innerText = 'Дата игры не установлена'
+
+    //заполнение количества игроков и тарифов
+    let tariffsSelect = bookingCardwrapper.querySelector('#players')
+      // createOption(tariffsSelect)
+
+
+
   } else {
     html.style.overflow = "auto";
   }
@@ -33,15 +78,6 @@ modeSelect.addEventListener("change", () => {
 });
 
 // РАБОТА С ОТОБРАЖЕНИЕМ РАСПИСАНИЯ
-let btnPrevious = document.querySelector("#btn_previous");
-let btnNext = document.querySelector("#btn_next");
-let bookingForm = document.querySelector("#booking-form");
-let bookingDay = bookingForm.querySelectorAll(".booking__day");
-let bookingTimes = bookingForm.querySelectorAll(".booking__times");
-let countBookingDay = bookingDay.length;
-let lastOpenBookingDay = countBookingDay;
-let firstOpenBookingDay = 0;
-
 if (bookingDay.length > 7) {
   for (let i = 7; i < bookingDay.length; i++) {
     bookingDisplayNone(i);
@@ -109,11 +145,6 @@ function bookingDisplayFlex(i) {
 }
 
 //ЗАБРОНИРОВАТЬ
-
-let btnBooked = document.querySelector("#booking-submit_btn");
-let inputConfidece = document.querySelector("#booking-card__confidence");
-let inputPhone = document.querySelector("#phone");
-
 inputConfidece.addEventListener("input", () => {
   activateBtnSubmit();
 });
@@ -135,3 +166,5 @@ function activateBtnSubmit() {
     btnBooked.disabled = true;
   }
 }
+
+
